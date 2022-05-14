@@ -6,5 +6,6 @@ class User < ApplicationRecord
 	has_many :buddies
 	has_many :journeys
 	has_many :safe_places
-	has_many :addresses, through: :safe_places  
+	has_many :addresses, through: :safe_places
+	has_one_attached :profile_picture
 end
