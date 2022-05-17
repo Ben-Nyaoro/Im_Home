@@ -1,4 +1,7 @@
+<h4>Your past journeys</h4>
+
 <% @journeys.each do |journey| %>
-          <strong><li> <%= journey.user.address.starting_point %> </li></strong>
-          <strong><li> <%= journey.user.address.destination %> </li></strong>
-        </div><br><br>
+          <li> From: <%= journey.starting_point %> </li>
+          <li> To: <%= journey.destination %> </li>
+          <li> By: <%= journey.mode_of_transportation %> </li>
+          <% end %>
