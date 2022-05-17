@@ -1,8 +1,7 @@
 class JourneysController < ApplicationController
-  before_action :set_journey, only: %i[show edit destoy update]
+  before_action :set_journey, only: %i[show edit destroy update]
 
   def index
-    @user = current_user
     @journeys = Journey.all
     @user_journeys = []
     @journeys.each do |journey|
@@ -35,9 +34,9 @@ class JourneysController < ApplicationController
 
   def update
     if @journey.update(journey_params)
-      redirect to @journey, notice: "Your journey was successfully updated. Take care!"
+      redirect_to @journey, notice: "Your journey was successfully updated. Take care!"
     else
-      render :edit, notice: "Please check your details"
+      render :edit, notice: "Please check your journey's details"
     end
   end
 
