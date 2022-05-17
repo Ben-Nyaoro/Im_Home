@@ -21,7 +21,7 @@ class JourneysController < ApplicationController
   def create
     @journey = Journey.new(journey_params)
     @journey.user = current_user
-    journey.save!
+    @journey.save!
     if @journey.save!
       @journey.journey_status = "started"
       redirect_to journey_path(@journey)
