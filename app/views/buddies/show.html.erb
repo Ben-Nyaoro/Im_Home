@@ -1,0 +1,11 @@
+			<h1>One Buddy</h1>
+
+      <% unless @buddy.profile_picture.nil? %>
+				<%= cl_image_tag(@buddy.profile_picture.key, width: 200, height: 200, crop: :fit, class: "rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+			<% else %>
+				<%= cl_image_tag("cld-sample", width: 200, height: 200, crop: :fit, class: "rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+			<% end %>
+		<li><%= @buddy.name %></li>
+		<li><%= @buddy.phone_number %></li>
+
+<%= link_to :back, buddies_path %>

@@ -1,0 +1,14 @@
+<h1>All Buddies</h1>
+
+<div class="container">
+	<% @buddies.each do |buddy|  %>
+			<% if buddy.profile_picture.attached? %>
+				<%= cl_image_tag(buddy.profile_picture.key, width: 150, height: 150, crop: :fit, class: "rounded-circle") %>
+			<% else %>
+				<%= cl_image_tag("cld-sample", width: 150, height: 150, crop: :fit, class: "rounded-circle" ) %>
+			<% end %>
+		<li><%= buddy.name %></li>
+		<li><%= buddy.phone_number %></li>
+		
+	<% end %>
+</div>
