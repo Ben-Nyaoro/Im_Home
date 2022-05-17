@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row justify-content-center">
+
+			<%= simple_form_for [@journey, @user, @buddy, @address] do |f| %>
+				<%= f.input :starting_point %>
+        <%= f.input :destination %>
+        <%= f.input :mode_of_transportation %>
+				<%= f.input :time_estimate, collection: [10, 20, 30, 40, 50, 60] %>
+				<%= f.submit class: 'btn btn-info' %>
+
+			<% end %>
+
+  </div>
+</div>
