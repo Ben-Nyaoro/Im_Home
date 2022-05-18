@@ -15,6 +15,12 @@ class JourneysController < ApplicationController
 
   def new
     @journey = Journey.new
+    @user = current_user
+    @user_safe_places = []
+    @user.safe_places.each do |s|
+      @user_safe_places << s.name
+    end
+    return @user_safe_places
   end
 
   def create

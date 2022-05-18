@@ -3,12 +3,10 @@
   <div class="row justify-content-center">
 			<%= simple_form_for [@journey] do |f| %>
     <div id="startingpoint">
-				<%= f.input :starting_point, collection: safe_places.each do |s|%>
-                                                  <%= s.name %>
-                                                  <% end %>
+				<%= f.input :starting_point, collection: @user_safe_places %>
     </div>
     <div id="destination">
-        <%= f.input :destination %>
+        <%= f.input :destination, collection: @user_safe_places%>
     </div>
     <div id="modeandtime">
         <%= f.input :mode_of_transportation %>
