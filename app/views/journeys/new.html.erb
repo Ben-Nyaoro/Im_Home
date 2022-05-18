@@ -12,7 +12,7 @@
         <%= f.input :destination, collection: @user_safe_places%>
     </div>
     <div id="modeandtime">
-        <%= f.input :mode_of_transportation %>
+        <%= f.input :mode_of_transportation, collection: ["Bus", "Train", "Taxi/Uber", "Car", "Foot"] %>
 				<%= f.input :time_estimate, collection: [10, 20, 30, 40, 50, 60] %>
 				<%= f.submit class: 'btn btn-info' %>
     </div>
