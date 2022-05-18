@@ -1,0 +1,11 @@
+<div class="container mb-4">
+		<h1>Create a Buddy </h1>
+
+			<%= simple_form_for [@buddy] do |f| %>
+				<%= f.input :name, placeholder: 'Please enter your name here!' %>
+				<%= f.input :phone_number, placeholder: 'Please enter your phone number here!' %>
+				<%= f.input :profile_picture, as: :file, placeholder: 'Upload a profile picture' %>
+				<%= f.submit class: 'btn btn-primary' %>
+			<% end %>
+
+</div>

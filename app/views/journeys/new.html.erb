@@ -2,16 +2,17 @@
 <div class="container">
   <div class="row justify-content-center">
 			<%= simple_form_for [@journey] do |f| %>
+      <div id="buddy">
+				<%= f.input :buddy %>
+    </div>
     <div id="startingpoint">
-				<%= f.input :starting_point, collection: safe_places.each do |s|%>
-                                                  <%= s.name %>
-                                                  <% end %>
+				<%= f.input :starting_point, collection: @user_safe_places %>
     </div>
     <div id="destination">
-        <%= f.input :destination %>
+        <%= f.input :destination, collection: @user_safe_places%>
     </div>
     <div id="modeandtime">
-        <%= f.input :mode_of_transportation %>
+        <%= f.input :mode_of_transportation, collection: ["Bus", "Train", "Taxi/Uber", "Car", "Foot"] %>
 				<%= f.input :time_estimate, collection: [10, 20, 30, 40, 50, 60] %>
 				<%= f.submit class: 'btn btn-info' %>
     </div>
