@@ -1,1 +1,35 @@
 // Specific CSS for your home-page
+
+// the background map image
+.jumbotron {
+  background-image: url("berlin-placeholder.png");
+  opacity: 0.7;
+  background-color: #cccccc;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 3px #92bfb155;
+  border-radius: 1%;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// the shape and placement of the start journey button
+.btn-primary {
+  width: 150px;
+  height: 150px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #92bfb155;
+}
+
+// this is the font color of the start journey button
+.btn {
+  color: #F5EEDC;
+}
