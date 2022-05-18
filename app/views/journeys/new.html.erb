@@ -2,6 +2,9 @@
 <div class="container">
   <div class="row justify-content-center">
 			<%= simple_form_for [@journey] do |f| %>
+      <div id="buddy">
+				<%= f.input :buddy %>
+    </div>
     <div id="startingpoint">
 				<%= f.input :starting_point, collection: @user_safe_places %>
     </div>
