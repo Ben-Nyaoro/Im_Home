@@ -1,14 +1,20 @@
-<h1>All Buddies</h1>
-
 <div class="container">
+	<h1 class="text-center">All Buddies</h1><hr>
 	<% @buddies.each do |buddy|  %>
-			<% if buddy.profile_picture.attached? %>
-				<%= cl_image_tag(buddy.profile_picture.key, width: 150, height: 150, crop: :fit, class: "rounded-circle") %>
-			<% else %>
-				<%= cl_image_tag("cld-sample", width: 150, height: 150, crop: :fit, class: "rounded-circle" ) %>
-			<% end %>
-		<li><%= buddy.name %></li>
-		<li><%= buddy.phone_number %></li>
-		
+		<%= link_to buddy_path(buddy) do %>
+			<div class="row d-flex justify-content-start">
+				<div class="col-6">
+					<% if buddy.profile_picture.attached? %>
+						<%= cl_image_tag(buddy.profile_picture.key, width: 50, height: 50, class: "rounded-circle") %>
+					<% else %>
+						<%= cl_image_tag("cld-sample", width: 50, height: 50, class: "rounded-circle" ) %>
+					<% end %>
+				</div>
+				<div class="col-6 list-inline">
+					<li><%= buddy.name %></li>
+					<li><%= buddy.phone_number %></li>
+				</div>
+			</div><br><hr>
+		<% end %>
 	<% end %>
 </div>

@@ -1,11 +1,17 @@
-			<h1>One Buddy</h1>
+<div class="container pt-4">
+  <div class="text-center">
+	<h1><%= @buddy.name %></h1><hr>
+		<% unless @buddy.profile_picture.nil? %>
+			<%= cl_image_tag(@buddy.profile_picture.key, width: 200, height: 200, class: "rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+		<% else %>
+			<%= cl_image_tag("cld-sample", width: 200, height: 200, class: "rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
+		<% end %><hr>
+	<li class="list-inline"><%= @buddy.phone_number %></li><br>
+		<div class ="d-flex justify-content-around">
+			<li class="btn btn-dark"><%= link_to :Back, buddies_path %></li>
+			<li class="btn btn-info"><%= link_to :Edit, edit_buddy_path(@buddy) %></li>
+			<li class="btn btn-danger"><%= link_to :Remove, buddy_path(@buddy), method: :delete, data: {:confirm => "You sure?" } %></li>			
+		</div>
+  </div>
+</div>		
 
-      <% unless @buddy.profile_picture.nil? %>
-				<%= cl_image_tag(@buddy.profile_picture.key, width: 200, height: 200, crop: :fit, class: "rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-			<% else %>
-				<%= cl_image_tag("cld-sample", width: 200, height: 200, crop: :fit, class: "rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
-			<% end %>
-		<li><%= @buddy.name %></li>
-		<li><%= @buddy.phone_number %></li>
-
-<%= link_to :back, buddies_path %>
