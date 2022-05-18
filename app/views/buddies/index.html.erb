@@ -2,7 +2,7 @@
 	<h1 class="text-center">All Buddies</h1><hr>
 	<% @buddies.each do |buddy|  %>
 		<%= link_to buddy_path(buddy) do %>
-			<div class="row d-flex justify-content-start">
+			<div class="row d-flex justify-content-around">
 				<div class="col-6">
 					<% if buddy.profile_picture.attached? %>
 						<%= cl_image_tag(buddy.profile_picture.key, width: 50, height: 50, class: "rounded-circle") %>
@@ -13,8 +13,11 @@
 				<div class="col-6 list-inline">
 					<li><%= buddy.name %></li>
 					<li><%= buddy.phone_number %></li>
-				</div>
+				</div>			
 			</div><br><hr>
-		<% end %>
+			<% end %>
 	<% end %>
+		<div class=" d-flex justify-content-center">
+				<li class="list-inline btn btn-outline-primary btn-sm"><%= link_to "Add Buddy", new_buddy_path %></li>
+		</div>
 </div>
