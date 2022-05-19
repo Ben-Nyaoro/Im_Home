@@ -2,12 +2,7 @@ class BuddiesController < ApplicationController
   before_action :set_buddy, only: [:show, :edit, :update, :destroy]
 
   def index
-    @buddies = Buddy.all
-    @user_buddies = []
-    @buddies.each do |s|
-      @user_buddies << s if s.user == current_user
-    end
-    return @user_buddies
+    @buddies = current_user.buddies
   end
 
   def show
