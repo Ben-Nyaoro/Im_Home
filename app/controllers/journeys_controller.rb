@@ -25,7 +25,7 @@ class JourneysController < ApplicationController
     @journey.user = current_user
     @journey.save!
     if @journey.save!
-      @journey.journey_status = "started"
+      @journey.update(journey_status: :started)
       redirect_to journey_path(@journey)
     else
       render :new, notice: "Your journey could not be started."
@@ -44,7 +44,7 @@ class JourneysController < ApplicationController
   end
 
   def destroy
-    @journey.journey_status = "completed"
+    @journey.update(journey_status: :completed)
     redirect_to root_path
   end
 
