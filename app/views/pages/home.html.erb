@@ -1,43 +1,23 @@
 <div class="container-fluid">
+    <div class="col-12 bg-blue-gray-light">
+        <%= link_to "#", class: "navbar" do %>
+            <%= image_tag "Hand.png" %>
+        <% end %>
+    </div>
     <div class="col-12">
-        <h1>My Trusted Contacts</h1>
-					<div class="row">
-						<div class="col-1">
-								<% @buddies.each do |buddy| %>
-							<div class = "d-flex justify-content-around">
-								<li class="list-inline">
-									<% if buddy.profile_picture.attached? %>
-										<%= cl_image_tag(buddy.profile_picture.key, width: 50, height: 50, class: "rounded-circle") %>
-									<% else %>
-										<%= cl_image_tag("cld-sample", width: 50, height: 50, class: "rounded-circle" ) %>
-									<% end %>
-								</li>
-							</div>
-							<% end %>
-								<a href="#" ><%= image_tag "person-icon.png" %></a>
-						</div>
-					</div>
+        <h5 class="mt-0">My Trusted Contacts</h5>
+        <div class="row">
+        <div class="col-1">
+            <a href="#">ADD A BUDDY</a>
+        </div>
+        </div>
     </div>
     <div class="col">
         <div class="jumbotron text-center">
             <%# <img src="app/assets/images/berlin-placeholder.png"> %>
             <%#= image_tag "berlin-placeholder.png" %>
-        <%= link_to new_journey_path do %>
-            <div class="btn btn-primary ml-1 mt-1 fs-5"> Start Journey </div>
-				<% end %>
+            <div class="btn btn-primary ml-1 mt-1"> <%= link_to 'Start Journey', new_journey_path, :class => "btn" %></div>
         </div>
     </div>
-    <div class="col-12 text-center">
-        <div class="row">
-            <div class="col-2">
-            <p class="text-left">link</p>
-            </div>
-            <div class="col-8">
-            <p class="text-center">blank</p>
-            </div>
-            <div class="col-2">
-            <p class="text-right">avatar</p>
-            </div>
-        </div>
-    </div>
+
 </div>
