@@ -1,6 +1,6 @@
 <div class="container">
 	<h1 class="text-center">All Buddies</h1><hr>
-	<% @buddies.each do |buddy|  %>
+	<% @user_buddies.each do |buddy|  %>
 		<%= link_to buddy_path(buddy) do %>
 			<div class="row d-flex justify-content-around">
 				<div class="col-6">
@@ -13,7 +13,7 @@
 				<div class="col-6 list-inline">
 					<li><%= buddy.name %></li>
 					<li><%= buddy.phone_number %></li>
-				</div>			
+				</div>
 			</div><br><hr>
 			<% end %>
 	<% end %>
