@@ -6,6 +6,7 @@ class JourneysController < ApplicationController
   end
 
   def show
+    @user_safe_places = current_user.safe_places
   end
 
   def new
@@ -14,7 +15,7 @@ class JourneysController < ApplicationController
     @buddies = current_user.buddies
     @user_safe_places = []
     @user.safe_places.each do |s|
-      @user_safe_places << [s.name, s.address]
+      @user_safe_places << [s.name, s.address_id]
     end
     return @user_safe_places
   end
@@ -24,7 +25,7 @@ class JourneysController < ApplicationController
     @journey.user = current_user
     @journey.save!
     if @journey.save!
-      @journey.journey_status = "started"
+      @journey.update(journey_status: :started)
       redirect_to journey_path(@journey)
     else
       render :new, notice: "Your journey could not be started."
@@ -43,7 +44,8 @@ class JourneysController < ApplicationController
   end
 
   def destroy
-    @journey.journey_status = "completed"
+    @journey.update(journey_status: :completed)
+    redirect_to root_path
   end
 
   private
