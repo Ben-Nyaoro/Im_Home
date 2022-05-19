@@ -45,6 +45,7 @@ class JourneysController < ApplicationController
 
   def destroy
     @journey.journey_status = "completed"
+    redirect_to root_path
   end
 
   private
