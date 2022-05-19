@@ -53,6 +53,6 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:starting_point, :destination, :mode_of_transportation, :time_estimate, :buddy)
+    params.require(:journey).permit(:starting_point, :destination, :mode_of_transportation, :time_estimate, :buddy_id)
   end
 end
