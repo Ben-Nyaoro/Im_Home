@@ -2,5 +2,14 @@
 
 <p>Starting Point:</p>
 <%  starting_point = Address.find_or_create_by(id: @journey.starting_point)  %>
-<%=  starting_point.address_line1 %>
+<p><%=  starting_point.address_line1 %></p>
+<p><%=  starting_point.address_line2 %></p>
+<p><%=  starting_point.postcode %>
+<%=  starting_point.city %></p>
+<br>
 <p> Destination:</p>
+<%  destination = Address.find_or_create_by(id: @journey.destination)  %>
+<p><%=  destination.address_line1 %></p>
+<p><%=  destination.address_line2 %></p>
+<p><%=  destination.postcode %>
+<%=  destination.city %></p>
