@@ -1,0 +1,6 @@
+
+
+<p>Starting Point:</p>
+<%  starting_point = Address.find_or_create_by(id: @journey.starting_point)  %>
+<%=  starting_point.address_line1 %>
+<p> Destination:</p>

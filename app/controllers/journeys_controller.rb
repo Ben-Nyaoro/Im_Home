@@ -6,6 +6,7 @@ class JourneysController < ApplicationController
   end
 
   def show
+    @user_safe_places = current_user.safe_places
   end
 
   def new
@@ -14,7 +15,7 @@ class JourneysController < ApplicationController
     @buddies = current_user.buddies
     @user_safe_places = []
     @user.safe_places.each do |s|
-      @user_safe_places << [s.name, s.address]
+      @user_safe_places << [s.name, s.address_id]
     end
     return @user_safe_places
   end
