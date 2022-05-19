@@ -2,12 +2,7 @@ class JourneysController < ApplicationController
   before_action :set_journey, only: %i[show edit destroy update]
 
   def index
-    @journeys = Journey.all
-    @user_journeys = []
-    @journeys.each do |journey|
-      @user_journeys << journey if journey.user == current_user && journey.journey_status == "completed"
-    end
-    return @user_journeys
+    @journeys = current_user.journeys
   end
 
   def show
@@ -16,6 +11,7 @@ class JourneysController < ApplicationController
   def new
     @journey = Journey.new
     @user = current_user
+    @buddies = current_user.buddies
     @user_safe_places = []
     @user.safe_places.each do |s|
       @user_safe_places << [s.name, s.address]
@@ -57,6 +53,6 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:starting_point, :destination, :mode_of_transportation, :time_estimate, :buddy)
+    params.require(:journey).permit(:starting_point, :destination, :mode_of_transportation, :time_estimate, :buddy_id)
   end
 end
