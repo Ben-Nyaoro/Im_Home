@@ -19,14 +19,12 @@ new_buddy1 = Buddy.create!(name: "Buddy", phone_number: "+49123456789123", user:
 new_buddy2 = Buddy.create!(name: "Buddy", phone_number: "+49123456789123", user: user1)
 new_buddy3 = Buddy.create!(name: "Buddy", phone_number: "+49123456789123", user: user2)
 
-new_journey1 = Journey.create!(starting_point: "Rinkartstr. 3, 12437 Berlin", destination: "Schönhauser Allee 15, 10119 Berlin",
-  mode_of_transportation: "Bus", time_estimate: "20", journey_status: "started",
-  buddy_status: "accepted", user_id: 1, buddy_id: 1)
-new_journey2 = Journey.create!(starting_point: "Schönhauser Allee. 3, 10119 Berlin", destination: "Baumschulenstraße 43, 12437 Berlin",
-    mode_of_transportation: "Train", time_estimate: "40", journey_status: "started",
-    buddy_status: "accepted", user_id: 1, buddy_id: 2)
+new_journey1 = Journey.create!(starting_point: 1, destination: 2,
+  mode_of_transportation: "Bus", time_estimate: "20", user_id: 1, buddy_id: 1)
+new_journey2 = Journey.create!(starting_point: 3, destination: 4,
+  mode_of_transportation: "Train", time_estimate: "40", user_id: 1, buddy_id: 2)
 
-new_address1 = Address.create!(address_line1: "Schnellerstraße 112", postcode: 12439, city: "Berlin")
+new_address1 = Address.create!(address_line1: "Schnellerstraße 112", address_line2: "c/o Müller", postcode: 12439, city: "Berlin")
 new_address2 = Address.create!(address_line1: "Heidekampweg 6", postcode: 12437, city: "Berlin")
 new_address3 = Address.create!(address_line1: "Elsenstraße 4", postcode: 12437, city: "Berlin")
 new_address4 = Address.create!(address_line1: "Michael-Brückner-Weg 3", postcode: 12524, city: "Berlin")
