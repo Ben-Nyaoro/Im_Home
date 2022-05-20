@@ -6,4 +6,10 @@ class PagesController < ApplicationController
 			@buddies = current_user.buddies
 		end
   end
+
+  def profile
+    if signed_in?
+			@user = current_user
+		end
+  end
 end

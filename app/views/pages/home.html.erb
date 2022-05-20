@@ -46,8 +46,17 @@
 				<div class="col-8">
 				<p class="text-center">blank</p>
 				</div>
-				<div class="col-2">
-				<p class="text-right">avatar</p>
+				<div class="col-2 list-inline">
+				<%= link_to profile_path do %>
+					<% if user_signed_in? %>
+							<% if current_user.profile_picture.attached? %>
+								<li class="mr-2"><%= cl_image_tag(current_user.profile_picture.key, class: "rounded-circle avatar") %></li>
+							<% else %>
+                <%= image_tag "Property 1=profile_pic.png", width: 50, height: 50 %>
+								<li>Profile</li>
+						<% end %>
+          <% end %>
+        <% end %>
 				</div>
 			</div>
     </div>
