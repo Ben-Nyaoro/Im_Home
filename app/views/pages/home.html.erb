@@ -5,14 +5,16 @@
 						<div class="buddy-icons col-1">
 						<% if user_signed_in? %>
 							<% @buddies.each do |buddy| %>
-								<ul class="list-inline ms-2">
-                  <% if buddy.profile_picture.attached? %>
-										<li class="mr-2"><%= cl_image_tag(buddy.profile_picture.key, class: "rounded-circle avatar") %></li>
-                  <% else %>
-										<li class="mr-2"><%= cl_image_tag("cld-sample", class: "rounded-circle avatar" ) %></li>
+                <%= link_to buddy_path(buddy) do %>
+									<ul class="list-inline ms-2">
+										<% if buddy.profile_picture.attached? %>
+											<li class="mr-2"><%= cl_image_tag(buddy.profile_picture.key, class: "rounded-circle avatar") %></li>
+										<% else %>
+											<li class="mr-2"><%= cl_image_tag("cld-sample", class: "rounded-circle avatar" ) %></li>
+										<% end %>
+									</ul>
                   <% end %>
-								</ul>
-									<% end %>
+								<% end %>
 								<%= link_to new_buddy_path do %>
 									<div class="buddies-icon ms-2">
 										<%= image_tag "person-icon.png", width: 50, height: 50 %>
