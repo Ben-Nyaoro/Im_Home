@@ -1,27 +1,30 @@
 <div class="container-fluid">
     <div class="col-12">
         <h1>My Trusted Contacts</h1>
-           <div class="d-flex ms-4 align-items-center">
+					<div class="d-flex ms-4 align-items-center">
 						<div class="buddy-icons col-1">
 						<% if user_signed_in? %>
 							<% @buddies.each do |buddy| %>
 								<ul class="list-inline ms-2">
-									<li class="list-inline">
                   <% if buddy.profile_picture.attached? %>
-                   <li class="mr-2"><%= cl_image_tag(buddy.profile_picture.key, class: "rounded-circle avatar") %></li>
+										<li class="mr-2"><%= cl_image_tag(buddy.profile_picture.key, class: "rounded-circle avatar") %></li>
                   <% else %>
-                   <li class="mr-2"><%= cl_image_tag("cld-sample", class: "rounded-circle avatar" ) %></li>
+										<li class="mr-2"><%= cl_image_tag("cld-sample", class: "rounded-circle avatar" ) %></li>
                   <% end %>
 								</ul>
-              		<% end %>
-								</div>
+									<% end %>
 								<%= link_to new_buddy_path do %>
-									<div ><%= image_tag "person-icon.png", width: 50, height: 50 %></div>
+									<div class="buddies-icon ms-2">
+										<%= image_tag "person-icon.png", width: 50, height: 50 %>
+									</div>
 								<% end %>
+						</div>
 						<% else %>
-							<%= link_to new_buddy_path do %>
-								<div ><%= image_tag "person-icon.png", width: 50, height: 50 %></div>
-							<% end %>
+								<%= link_to new_buddy_path do %>
+									<div class="buddies-icon ms-2">
+										<%= image_tag "person-icon.png", width: 50, height: 50 %>
+									</div>
+								<% end %>
 						<% end %>
 						</div>
 					</div>
