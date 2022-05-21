@@ -2,12 +2,7 @@ class SafePlacesController < ApplicationController
   before_action :set_safe_place, only: %i[show edit destroy update]
 
   def index
-    @safe_places = SafePlace.all
-    @user_safe_places = []
-    @safe_places.each do |s|
-      @user_safe_places << s if s.user == current_user
-    end
-    return @user_safe_places
+    @safe_places = current_user.safe_places
   end
 
   def show
@@ -20,6 +15,7 @@ class SafePlacesController < ApplicationController
   def create
     @safe_place = SafePlace.new(safe_place_params)
     @safe_place.user = current_user
+    @safe_place.address = Address.last
     @safe_place.save!
     if @safe_place.save!
       redirect_to safe_places_path
@@ -51,6 +47,6 @@ class SafePlacesController < ApplicationController
   end
 
   def safe_place_params
-    params.require(:safe_place).permit(:name, :address)
+    params.require(:safe_place).permit(:name)
   end
 end
