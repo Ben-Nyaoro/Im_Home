@@ -1,0 +1,31 @@
+// font color buttons
+.btn {
+  color: #F5EEDC;
+}
+
+// big round button
+.journey {
+  width: 150px;
+  height: 150px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #92bfb155;
+  text-transform: uppercase;
+}
+
+// oval action buttons
+.button-oval {
+  display: inline-block;
+  padding: 5px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  white-space: nowrap;
+  border-radius: 2em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  margin-top: 5px;
+}

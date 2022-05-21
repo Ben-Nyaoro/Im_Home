@@ -1,6 +1,6 @@
 
-<div class="container">
-  <div class="row justify-content-center">
+<div class="container d-xl-flex">
+  <div class="row justify-content-xl-center">
     <%  buddies_array = [] %>
     <%  @buddies.each do |s| %>
       <%  buddies_array << [s.name, s.id] %>
@@ -19,7 +19,7 @@
     <div id="modeandtime">
         <%= f.input :mode_of_transportation, collection: ["Bus", "Train", "Taxi/Uber", "Car", "Foot"] %>
 				<%= f.input :time_estimate, collection: [10, 20, 30, 40, 50, 60] %>
-				<%= f.submit class: 'btn btn-info' %>
+				<%= f.submit class: 'btn btn-warning button-oval' %>
     </div>
 			<% end %>
 
