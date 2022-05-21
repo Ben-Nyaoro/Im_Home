@@ -1,0 +1,11 @@
+
+<div class="container">
+	<h2><%= @safe_place.name %></h2>
+	<ul class="list-inline">
+	<li><%= @safe_place.address.address_line1 %> </li>
+  <li><%= @safe_place.address.address_line2%> </li>
+  <li><%= @safe_place.address.postcode%></li>
+  <li><%= @safe_place.address.city%> </li>
+	</ul>
+ <div class="btn btn-info ml-1 mt-1"> <%= link_to 'Update', edit_address_path, :class => "btn" %></div>
+</div>
