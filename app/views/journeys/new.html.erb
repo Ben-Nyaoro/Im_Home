@@ -9,18 +9,28 @@
 			<%= simple_form_for [@journey] do |f| %>
       <div id="buddy">
 				<%= f.input :buddy_id, collection: buddies_array%>
-    </div>
-    <div id="startingpoint">
-				<%= f.input :starting_point, collection: @user_safe_places %>
-    </div>
-    <div id="destination">
-        <%= f.input :destination, collection: @user_safe_places%>
-    </div>
-    <div id="modeandtime">
-        <%= f.input :mode_of_transportation, collection: ["Bus", "Train", "Taxi/Uber", "Car", "Foot"] %>
+			</div>
+			<div id="startingpoint">
+				<%= f.select :starting_point_id, @user_safe_places.collect {|place| [ place.name, place.address_id ] }, include_blank: true
+
+ %> </div>
+			</div>
+			<div>
+				<%= f.simple_fields_for :starting_point_id do |address_subform| %>
+					<%= address_subform.text_field :address_line1 %>
+					<%= address_subform.text_field :address_line2 %>
+					<%= address_subform.number_field :postcode %>
+					<%= address_subform.text_field :city %>
+				<% end %>
+			</div>
+			<div id="destination">
+				<%= f.input :destination_id, collection: @user_safe_places%>
+			</div>
+			<div id="modeandtime">
+				<%= f.input :mode_of_transportation, collection: ["Bus", "Train", "Taxi/Uber", "Car", "Foot"] %>
 				<%= f.input :time_estimate, collection: [10, 20, 30, 40, 50, 60] %>
-				<%= f.submit class: 'btn btn-warning button-oval' %>
-    </div>
+				<%= f.submit class: 'btn btn-info' %>
+			</div>
 			<% end %>
 
   </div>
