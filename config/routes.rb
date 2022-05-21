@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   resources :journeys
   resources :safe_places
   resources :buddies
+  resources :addresses
 	#Ex:- :default =>''
 end
