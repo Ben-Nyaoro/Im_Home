@@ -3,13 +3,13 @@ class PagesController < ApplicationController
 
   def home
     if signed_in?
-			@buddies = current_user.buddies
-		end
+      @buddies = current_user.buddies
+    end
   end
 
   def profile
     if signed_in?
-			@user = current_user
-		end
+      @user = current_user
+    end
   end
 end

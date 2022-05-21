@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="row justify-content-center">
+			<%= simple_form_for [@address] do |f| %>
+				<%= f.input :address_line1 %>
+        <%= f.input :address_line2 %>
+        <%= f.input :postcode %>
+				<%= f.input :city %>
+				<%= f.submit class: 'btn btn-info' %>
+    </div>
+			<% end %>
+
+  </div>
+</div>
