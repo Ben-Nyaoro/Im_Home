@@ -1,27 +1,26 @@
+<% if user_signed_in? %>
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="container-fluid">
       <div class="col-12 text-center">
-          <div class="row">
-              <div class="col-4">
-                  <a href="/safe_places"><button class="btn btn-info">My Safe Spaces</button></a> 
-              </div>
-              <div class="col-4">
-                <a href="/safe_places/new"><button class="btn btn-info">Add Safe Space</button></a>
-              </div>
-              <div class="col-4">
-                <%= link_to profile_path do %>
-                    <% if user_signed_in? %>
-                            <% if current_user.profile_picture.attached? %>
-                                <li class="mr-2"><%= cl_image_tag(current_user.profile_picture.key, class: "rounded-circle avatar") %></li>
-                            <% else %>
+        <div class="row">
+          <div class="col-4">
+            <a href="/safe_places"><button class="btn btn-info">My Safe Spaces</button></a> 
+          </div>
+          <div class="col-4">
+            <%# <a href="/safe_places/new"><button class="btn btn-info">Add Safe Space</button></a> %>
+          </div>
+          <div class="col-4">
+            <%= link_to profile_path do %>
+              <% if current_user.profile_picture.attached? %>
+                <li class="mr-2"><%= cl_image_tag(current_user.profile_picture.key, class: "rounded-circle avatar") %></li>
+              <% else %>
                 <%= image_tag "Property 1=profile_pic.png", width: 50, height: 50 %>
-                                <li>Profile</li>
-                        <% end %>
-          <% end %>
-        <% end %>
-
-              </div>
-            </div>
+              <% end %>
+            <% end %>
+          </div>
         </div>
+      </div>
     </div>
-
+  </div>
+</div>
+<% end %>
