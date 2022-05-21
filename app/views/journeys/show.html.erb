@@ -1,0 +1,28 @@
+
+
+<p>Starting Point:</p>
+<%  starting_point = Address.find_or_create_by(id: @journey.starting_point)  %>
+<p><%=  starting_point.address_line1 %></p>
+<p><%=  starting_point.address_line2 %></p>
+<p><%=  starting_point.postcode %>
+<%=  starting_point.city %></p>
+<br>
+<p> Destination:</p>
+<%  destination = Address.find_or_create_by(id: @journey.destination)  %>
+<p><%=  destination.address_line1 %></p>
+<p><%=  destination.address_line2 %></p>
+<p><%=  destination.postcode %>
+<%=  destination.city %></p>
+
+<p>Your Buddy:</p>
+<% buddy = Buddy.find_or_create_by(id: @journey.buddy_id)%>
+<%= buddy.name %>
+<% if buddy.profile_picture.attached? %>
+	<%= cl_image_tag(buddy.profile_picture.key, width: 50, height: 50, class: "rounded-circle") %>
+<% else %>
+	<%= cl_image_tag("cld-sample", width: 50, height: 50, class: "rounded-circle" ) %>
+<% end %>
+
+
+<div class="btn btn-info ml-1 mt-1"> <%= link_to 'Update', edit_journey_path(@journey), :class => "btn" %></div>
+               <div class="btn btn-info ml-1 mt-1"> <%= link_to "End Journey", journey_path(@journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>

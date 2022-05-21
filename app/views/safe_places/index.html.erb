@@ -1,0 +1,9 @@
+<div class="container">
+	<h1>My Safe Places</h1>
+	<ul class="list-inline">
+		<% @safe_places.each do |safe_place| %>
+			<li><%= safe_place.name %></li>
+		<% end %>
+	</ul>
+</div>
+
