@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(version: 2022_05_17_192754) do
   end
 
   create_table "journeys", force: :cascade do |t|
-    t.string "starting_point"
-    t.string "destination"
+    t.bigint "starting_point_id"
+    t.bigint "destination_id"
     t.string "mode_of_transportation"
     t.integer "time_estimate"
     t.integer "journey_status"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2022_05_17_192754) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["buddy_id"], name: "index_journeys_on_buddy_id"
+    t.index ["destination_id"], name: "index_journeys_on_destination_id"
+    t.index ["starting_point_id"], name: "index_journeys_on_starting_point_id"
     t.index ["user_id"], name: "index_journeys_on_user_id"
   end
 

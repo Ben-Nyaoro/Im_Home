@@ -1,8 +1,8 @@
 class CreateJourneys < ActiveRecord::Migration[6.1]
   def change
     create_table :journeys do |t|
-      t.string :starting_point
-      t.string :destination
+      t.references :starting_point
+      t.references :destination
       t.string :mode_of_transportation
       t.integer :time_estimate
       t.integer :journey_status
