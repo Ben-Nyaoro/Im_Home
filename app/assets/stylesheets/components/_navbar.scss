@@ -10,3 +10,44 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+// .button-oval {
+//   display: inline-block;
+//   padding: .75rem 1.25rem;
+//   border-radius: 10rem;
+//   color: #F5EEDC;
+//   text-transform: uppercase;
+//   font-size: 1rem;
+//   letter-spacing: .15rem;
+//   transition: all .3s;
+//   position: relative;
+//   overflow: hidden;
+//   z-index: 1;
+// }
+
+// .button-oval {
+//   outline:none;
+//   height: 40px;
+//   text-align: center;
+//   width: 130px;
+//   border-radius:40px;
+//   background: #ba8f9528;
+//   border: 2px solid $pink;
+//   color: $pink;
+//   letter-spacing:1px;
+//   text-shadow:0;
+//   font-size:12px;
+//   font-weight:bold;
+// }
+
+.button-oval {
+    display: inline-block;
+    padding: 5px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    text-align: center;
+    white-space: nowrap;
+    border-radius: 2em;
+    text-transform: uppercase;
+}
