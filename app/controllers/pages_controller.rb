@@ -3,13 +3,8 @@ class PagesController < ApplicationController
 
   def home
     if signed_in?
-<<<<<<< HEAD
-			@buddies = current_user.buddies.first(4)
-		end
-=======
-      @buddies = current_user.buddies
+			@buddies = current_user.buddies.last(4)
     end
->>>>>>> 9949868bc032b7bdd1fe4fdb5c4509b32c1a4cf6
   end
 
   def profile
