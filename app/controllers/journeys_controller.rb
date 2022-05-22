@@ -10,13 +10,14 @@ class JourneysController < ApplicationController
   end
 
   def new
-		@user_safe_places = current_user.safe_places
-    @journey = Journey.new
+    @user_safe_places = current_user.safe_places
     @user = current_user
     @buddies = current_user.buddies
+    @journey = Journey.new
   end
 
   def create
+
     @journey = Journey.new(journey_params)
     @journey.user = current_user
 		@journey.starting_point = Address.find_or_create_by(journey_params[:starting_point_id])
@@ -51,7 +52,8 @@ class JourneysController < ApplicationController
     @journey = Journey.find(params[:id])
   end
 
-  def journey_params
-    params.require(:journey).permit( :destination_id, :mode_of_transportation, :time_estimate, :buddy_id, starting_point_id: [:address_line1, :address_line2, :postcode, :city])
+  def journey_params_manual
+    params.require(:journey).permit(:destination_id, :mode_of_transportation, :time_estimate, :buddy_id, starting_point_id: [:address_line1, :address_line2, :postcode, :city])
   end
+
 end
