@@ -17,10 +17,10 @@ class JourneysController < ApplicationController
   end
 
   def create
-
     @journey = Journey.new(journey_params)
     @journey.user = current_user
 		@journey.starting_point = Address.find_or_create_by(journey_params[:starting_point_id])
+    @journey.destination = Address.find_or_create_by(journey_params_destination[:destination_id])
     @journey.save!
     if @journey.save!
       @journey.update(journey_status: :started)
@@ -52,8 +52,11 @@ class JourneysController < ApplicationController
     @journey = Journey.find(params[:id])
   end
 
-  def journey_params_manual
-    params.require(:journey).permit(:destination_id, :mode_of_transportation, :time_estimate, :buddy_id, starting_point_id: [:address_line1, :address_line2, :postcode, :city])
+  def journey_params
+    params.require(:journey).permit(:destination_id, :mode_of_transportation, :time_estimate, :buddy_id, :starting_point, :destination, starting_point_id: [:address_line1, :address_line2, :postcode, :city])
   end
 
+  def journey_params_destination
+    params.require(:journey).permit(destination_id: [:address_line1, :address_line2, :postcode, :city])
+  end
 end

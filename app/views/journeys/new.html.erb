@@ -10,9 +10,9 @@
         <div id="buddy">
           <%= f.input :buddy_id, collection: buddies_array%>
         </div>
-        <div data-contoller="visibility">
-          <div data-visibility-target="hideable">
-            <%= f.input :starting_point, collection: @user_safe_places.collect {|place| [ place.name, place.address_id ] }, include_blank: true %>
+        <div data-controller="visibility">
+          <div data-visibility-target="hideablesp">
+        <%= f.input :starting_point_id, collection: @user_safe_places.collect {|place| [ place.name, Address.find_or_create_by(id: place.address_id) ] }, include_blank: true %>
           </div>
           <button type="button" data-action="visibility#hideTargets">Add address manually</button>
           <div data-visibility-target="hideable">
@@ -21,12 +21,11 @@
               <%= address_subform.text_field :address_line2 %>
               <%= address_subform.number_field :postcode %>
               <%= address_subform.text_field :city %>
+
             <% end %>
           </div>
 
-          <div id="destination" data-visibility-target="hideable">
-            <%=f.input :destination, collection: @user_safe_places.collect {|place| [ place.name, place.address_id ] }, include_blank: true %>
-          </div>
+
           <button type="button" data-action="visibility#hideTargets">Add address manually</button>
           <div data-visibility-target="hideable" >
               <%= f.simple_fields_for :destination_id do |address_subform| %>

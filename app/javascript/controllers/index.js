@@ -2,11 +2,8 @@
 // Controller files must be named *_controller.js.
 
 import { Application } from "stimulus"
-import { definitionsFromContext } from "stimulus/webpack-helpers"
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 
 const application = Application.start()
 const context = require.context("controllers", true, /_controller\.js$/)
 application.load(definitionsFromContext(context))
-
-import VisibilityController from "./visibility_controller"
-application.register("visibility", VisibilityController)
