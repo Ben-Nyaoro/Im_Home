@@ -10,10 +10,15 @@ class JourneysController < ApplicationController
   end
 
   def new
-    @user_safe_places = current_user.safe_places
+    @user_safe_places = []
+    @address_hash = {}
     @user = current_user
     @buddies = current_user.buddies
     @journey = Journey.new
+    @user.safe_places.each do |s|
+      @user_safe_places << [s.name, s.address]
+    end
+    return @user_safe_places
   end
 
   def create
@@ -53,7 +58,7 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:destination_id, :mode_of_transportation, :time_estimate, :buddy_id, :starting_point, :destination, starting_point_id: [:address_line1, :address_line2, :postcode, :city])
+    params.require(:journey).permit(:destination_id, :mode_of_transportation, :time_estimate, :buddy_id, starting_point_id: [:address_line1, :address_line2, :postcode, :city])
   end
 
   def journey_params_destination
