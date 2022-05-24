@@ -14,7 +14,7 @@
           <div data-visibility-target="startingsafe">
         <%= f.input :starting_point_id, collection: @user_safe_places %>
           </div>
-          <button type="button" data-action="visibility#toggleTargetsStart">Safe Place / Address</button>
+          <button type="button" data-action="visibility#toggleTargetsStart visibility#buttonChangeStart" data-visibility-target="buttonStart" >Type an address?</button>
           <div data-visibility-target="starting" hidden >
             <%= f.simple_fields_for :starting_point_id do |address_subform| %>
               <%= address_subform.text_field :address_line1, disabled: true %>
@@ -27,7 +27,7 @@
           <div data-visibility-target="destisafe">
           <%= f.input :destination_id, collection: @user_safe_places %>
           </div>
-          <button type="button" data-action="visibility#toggleTargetsDesti">Safe Place / Address</button>
+          <button type="button" data-action="visibility#toggleTargetsDesti visibility#buttonChangeDesti" data-visibility-target="buttonDesti" >Type an address?</button>
           <div data-visibility-target="destination" hidden>
               <%= f.simple_fields_for :destination_id do |address_subform| %>
                 <%= address_subform.text_field :address_line1, disabled: true%>

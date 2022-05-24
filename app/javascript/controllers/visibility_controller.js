@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["starting", "destination", "startingsafe", "destisafe"]
+  static targets = ["starting", "destination", "startingsafe", "destisafe", "buttonStart", "buttonDesti"]
 
   toggleTargetsStart() {
     let startingSafe = this.startingsafeTarget.children[0].lastChild
@@ -34,6 +34,24 @@ export default class extends Controller {
       destiForm[2].disabled = !destiForm[2].disabled
       destiForm[3].disabled = !destiForm[3].disabled
     }
+    };
+
+    buttonChangeStart() {
+      if(this.startingTarget.hidden) {
+        this.buttonStartTarget.innerText = "Type an address?";
+      }
+      else if(this.startingsafeTarget.hidden) {
+        this.buttonStartTarget.innerText = "Choose from safe places?";
+      }
+    };
+
+    buttonChangeDesti() {
+      if(this.destinationTarget.hidden) {
+        this.buttonDestiTarget.innerText = "Type an address?";
+      }
+      else if(this.destisafeTarget.hidden) {
+        this.buttonDestiTarget.innerText = "Choose from safe places?";
+      }
     };
 
       // connect() {
