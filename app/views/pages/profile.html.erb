@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-flex">
 		<div class="text-center">
 			<ul class="list-inline">
 			<% if current_user.profile_picture.attached? %>
@@ -11,7 +11,7 @@
 			<ul class="list-inline">
 				<li class="fw-light"><span class="fw-bold">Email:</span> <%= current_user.email %></li>
 				<li class="fw-light"><span class="fw-bold">Phone:</span> <%= current_user.phone_number %></li>
-				<li class="btn btn-primary"><%= link_to 'Edit', edit_user_registration_path %> </li>
+				<li class="btn button-oval"><%= link_to 'Edit', edit_user_registration_path %> </li>
 			</ul><hr>
 			<div class="list-inline text-decoration-none">
 				<%= link_to buddies_path do %>

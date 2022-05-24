@@ -11,7 +11,6 @@ class JourneysController < ApplicationController
 
   def new
     @user_safe_places = []
-    @address_hash = {}
     @user = current_user
     @buddies = current_user.buddies
     @journey = Journey.new

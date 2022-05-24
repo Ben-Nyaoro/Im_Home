@@ -9,13 +9,14 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  border: 3px #92bfb155;
+  border: 3px #5e5e5e55;
   border-radius: 1%;
   position: relative;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  // margin-bottom: 5em;
 }
 
 // the shape and placement of the start journey button
@@ -58,7 +59,6 @@
 
 a {
   text-decoration: none;
-
   color: $dark-gray;
 }
 
