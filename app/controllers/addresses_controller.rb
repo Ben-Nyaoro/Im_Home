@@ -30,4 +30,9 @@ class AddressesController < ApplicationController
   def address_params
     params.require(:address).permit(:address_line1, :address_line2, :postcode, :city)
   end
+
+  def set_address
+    @address = Address.find(params[:id])
+  end
+
 end
