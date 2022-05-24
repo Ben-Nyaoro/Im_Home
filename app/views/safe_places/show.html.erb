@@ -7,5 +7,5 @@
   <li><%= @safe_place.address.postcode%></li>
   <li><%= @safe_place.address.city%> </li>
 	</ul>
- <div class="btn btn-info ml-1 mt-1"> <%= link_to 'Update', edit_address_path, :class => "btn" %></div>
+ <div class="btn btn-info ml-1 mt-1"> <%= link_to 'Update', edit_address_path(@safe_place.address), :class => "btn" %></div>
 </div>
