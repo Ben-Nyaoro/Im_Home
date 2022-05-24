@@ -1,11 +1,13 @@
 <div class="container-flex mt-3 ml-3 justify-content-around">
 	<div class="row mx-3">
-		<div class="col-2">
+		<div class="col-9">
+		<div class="row">
 			<%= link_to root_path do %>
-				<%= image_tag "Hand.png", width: 50 %>
+				<p class="font-italic"><%= image_tag "Hand.png", width: 50 %> I'm Home</p>
 			<% end %>
 		</div>
-		<div class="col-6">
+		</div>
+		<div class="col-3">
 		</div>
 		<% unless user_signed_in? %>
 			<div class="col-2 d-flex">
