@@ -14,25 +14,26 @@
           <div data-visibility-target="startingsafe">
         <%= f.input :starting_point_id, collection: @user_safe_places %>
           </div>
-          <button type="button" data-action="visibility#showTargetsStart">Add address manually</button>
+          <button type="button" data-action="visibility#toggleTargetsStart">Safe Place / Address</button>
           <div data-visibility-target="starting" hidden >
             <%= f.simple_fields_for :starting_point_id do |address_subform| %>
-              <%= address_subform.text_field :address_line1 %>
-              <%= address_subform.text_field :address_line2 %>
-              <%= address_subform.number_field :postcode %>
-              <%= address_subform.text_field :city %>
+              <%= address_subform.text_field :address_line1, disabled: true %>
+              <%= address_subform.text_field :address_line2, disabled: true %>
+              <%= address_subform.number_field :postcode, disabled: true %>
+              <%= address_subform.text_field :city, disabled: true %>
             <% end %>
           </div>
+          <br>
           <div data-visibility-target="destisafe">
           <%= f.input :destination_id, collection: @user_safe_places %>
           </div>
-          <button type="button" data-action="visibility#showTargetsDesti">Add address manually</button>
+          <button type="button" data-action="visibility#toggleTargetsDesti">Safe Place / Address</button>
           <div data-visibility-target="destination" hidden>
               <%= f.simple_fields_for :destination_id do |address_subform| %>
-                <%= address_subform.text_field :address_line1 %>
-                <%= address_subform.text_field :address_line2 %>
-                <%= address_subform.number_field :postcode %>
-                <%= address_subform.text_field :city %>
+                <%= address_subform.text_field :address_line1, disabled: true%>
+                <%= address_subform.text_field :address_line2, disabled: true %>
+                <%= address_subform.number_field :postcode, disabled: true %>
+                <%= address_subform.text_field :city, disabled: true %>
               <% end %>
           </div>
         </div>
