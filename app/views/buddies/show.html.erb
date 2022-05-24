@@ -8,9 +8,9 @@
 		<% end %><hr>
 	<li class="list-inline"><%= @buddy.phone_number %></li><br>
 		<div class ="d-flex justify-content-around">
-			<li class="btn btn-dark"><%= link_to :Back, buddies_path %></li>
-			<li class="btn btn-info"><%= link_to :Edit, edit_buddy_path(@buddy) %></li>
-			<li class="btn btn-danger"><%= link_to :Remove, buddy_path(@buddy), method: :delete, data: {:confirm => "You sure?" } %></li>			
+			<li class="btn button-oval"><%= link_to :Back, buddies_path %></li>
+			<li class="btn button-oval"><%= link_to :Edit, edit_buddy_path(@buddy) %></li>
+			<li class="btn button-oval"><%= link_to :Remove, buddy_path(@buddy), method: :delete, data: {:confirm => "You sure?" } %></li>
 		</div>
   </div>
-</div>		
+</div>
