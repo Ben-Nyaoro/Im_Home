@@ -1,5 +1,5 @@
 
-<div class="container d-xl-flex">
+<div class="container flex">
   <div class="row justify-content-xl-center">
     <%  buddies_array = [] %>
     <%  @buddies.each do |s| %>
@@ -17,10 +17,10 @@
           <button type="button" data-action="visibility#toggleTargetsStart visibility#buttonChangeStart" data-visibility-target="buttonStart" >Type an address?</button>
           <div data-visibility-target="starting" hidden >
             <%= f.simple_fields_for :starting_point_id do |address_subform| %>
-              <%= address_subform.text_field :address_line1, disabled: true %>
-              <%= address_subform.text_field :address_line2, disabled: true %>
-              <%= address_subform.number_field :postcode, disabled: true %>
-              <%= address_subform.text_field :city, disabled: true %>
+              <%= address_subform.text_field :address_line1, :placeholder => "Address line one", disabled: true %>
+              <%= address_subform.text_field :address_line2, :placeholder => "Address line two", disabled: true %>
+              <%= address_subform.number_field :postcode, :placeholder => "Postcode", disabled: true %>
+              <%= address_subform.text_field :city, :placeholder => "City", disabled: true %>
             <% end %>
           </div>
           <br>
@@ -30,10 +30,10 @@
           <button type="button" data-action="visibility#toggleTargetsDesti visibility#buttonChangeDesti" data-visibility-target="buttonDesti" >Type an address?</button>
           <div data-visibility-target="destination" hidden>
               <%= f.simple_fields_for :destination_id do |address_subform| %>
-                <%= address_subform.text_field :address_line1, disabled: true%>
-                <%= address_subform.text_field :address_line2, disabled: true %>
-                <%= address_subform.number_field :postcode, disabled: true %>
-                <%= address_subform.text_field :city, disabled: true %>
+                <%= address_subform.text_field :address_line1, :placeholder => "Address line one", disabled: true%>
+                <%= address_subform.text_field :address_line2, :placeholder => "Address line two", disabled: true %>
+                <%= address_subform.number_field :postcode, :placeholder => "Postcode", disabled: true %>
+                <%= address_subform.text_field :city, :placeholder => "City", disabled: true %>
               <% end %>
           </div>
         </div>
