@@ -6,6 +6,12 @@ class SafePlacesController < ApplicationController
   end
 
   def show
+		# the `geocoded` scope filters only safe places with coordinates (latitude & longitude)
+		@markers = [{
+   		lat: @safe_place.address.latitude,
+   		lng: @safe_place.address.longitude,
+			image_url: helpers.asset_url("safeplace_navbar_icon.png")
+		}]
   end
 
   def new
