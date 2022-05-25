@@ -1,9 +1,10 @@
-<div class="container-fluid">
-    <div class="col-12">
-        <h1>My Buddies</h1>
+<div class="container-fluid mt-3">
+    <div class="col-12 ml-3">
+		<% if user_signed_in? %>
+        <h3>My Buddies</h3>
 					<div class="d-flex ms-4 align-items-center">
 						<div class="buddy-icons col-1">
-						<% if user_signed_in? %>
+
 							<% @buddies.each do |buddy| %>
                 <%= link_to buddy_path(buddy) do %>
 									<ul class="list-inline ms-2">

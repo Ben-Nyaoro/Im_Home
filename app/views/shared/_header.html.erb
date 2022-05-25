@@ -1,30 +1,30 @@
 <div class="container-flex mt-3 ml-3 justify-content-around">
 	<div class="row mx-3">
-		<div class="col-9">
-		<div class="row">
-			<%= link_to root_path do %>
-				<p class="font-italic"><%= image_tag "Hand.png", width: 50 %> I'm Home</p>
-			<% end %>
+		<div class="col-6">
+			<div class="row">
+				<%= link_to root_path do %>
+					<%= image_tag "Header-logo.png", height: 50 %>
+				<% end %>
+			</div>
 		</div>
-		</div>
-		<div class="col-3">
-		</div>
-		<% unless user_signed_in? %>
-			<div class="col-2 d-flex">
-				<div class="login">
-					<%= link_to new_user_session_path do %>
-						<p>Login&nbsp;</p>
-					<% end %>
-				</div>
+		<div class="col-6">
+			<% unless user_signed_in? %>
+				<div class="col-2 d-flex">
+					<div class="login">
+						<%= link_to new_user_session_path do %>
+							<p>Login&nbsp;</p>
+						<% end %>
+					</div>
 
-				<div>
-					<p> |&nbsp;</p>
-				</div>
+					<div>
+						<p> |&nbsp;</p>
+					</div>
 
-				<div class="signup">
-					<%= link_to new_user_registration_path do %>
-						<p>Sign Up</p>
-					<% end %>
+					<div class="signup">
+						<%= link_to new_user_registration_path do %>
+							<p>Sign Up</p>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		<% end %>
