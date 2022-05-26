@@ -1,22 +1,27 @@
-<h4>Your past journeys</h4>
-<br>
-<% @journeys.each do |journey| %>
-  <strong> <%= journey.created_at %></strong>
-  <% buddy = Buddy.find_or_create_by(id: journey.buddy_id)%>
-  <% if buddy.profile_picture.attached? %>
-    <%= cl_image_tag(buddy.profile_picture.key, width: 50, height: 50, class: "rounded-circle") %>
-  <% else %>
-    <%= cl_image_tag("cld-sample", width: 50, height: 50, class: "rounded-circle" ) %>
-  <% end %>
-  <% starting_address = Address.find_or_create_by(id: journey.starting_point)  %>
-  <% destination_address = Address.find_or_create_by(id: journey.destination) %>
-  <p><strong>From:</strong> <%=  starting_address.address_line1%></p>
-  <p>  <%= starting_address.address_line2 unless starting_address.address_line2.nil?%></p>
-  <p>   <%= starting_address.postcode%>
-        <%= starting_address.city%></p>
-  <p><strong>To: </strong><%=  destination_address.address_line1%></p>
-  <p>  <%= destination_address.address_line2 unless destination_address.address_line2.nil?%></p>
-  <p>   <%= destination_address.postcode%>
-        <%= destination_address.city%></p>
-        <br><br>
-<% end %>
+<div class="journeys-list m-3">
+  <h4>Your past journeys</h4>
+  <br>
+    <% @journeys.each do |journey| %>
+     <div class="each-journey">
+    <li><strong>Time & Date:</li> <%= journey.created_at %></strong></li>
+    <li><strong>Your Buddy:</strong></li>
+    <% buddy = Buddy.find_or_create_by(id: journey.buddy_id)%>
+    <% if buddy.profile_picture.attached? %>
+      <%= cl_image_tag(buddy.profile_picture.key, width: 50, height: 50, class: "rounded-circle") %>
+    <% else %>
+      <%= cl_image_tag("cld-sample", width: 50, height: 50, class: "rounded-circle" ) %>
+    <% end %>
+    <% starting_address = Address.find_or_create_by(id: journey.starting_point)  %>
+    <% destination_address = Address.find_or_create_by(id: journey.destination) %>
+    <li><strong>From: </li></strong><p><%=  starting_address.address_line1%></p>
+    <p>  <%= starting_address.address_line2 unless starting_address.address_line2.nil?%></p>
+    <p>   <%= starting_address.postcode%>
+          <%= starting_address.city%></p>
+    <li><strong>To: </li></strong><p><%=  destination_address.address_line1%></p>
+    <p>  <%= destination_address.address_line2 unless destination_address.address_line2.nil?%></p>
+    <p>   <%= destination_address.postcode%>
+          <%= destination_address.city%></p>
+          <br><br>
+    <% end %>
+  </div>
+</div>
