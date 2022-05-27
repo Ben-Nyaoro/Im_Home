@@ -12,7 +12,9 @@
 			<ul class="list-inline">
 				<li class="fw-light"><span class="fw-bold">Email:</span> <%= current_user.email %></li>
 				<li class="fw-light"><span class="fw-bold">Phone:</span> <%= current_user.phone_number %></li>
+        <section>
 				<li class="btn button-oval yellow"><%= link_to 'Edit', edit_user_registration_path %> </li>
+        </section>
 			</ul><hr>
     </div>
     <div class="profile-buttons d-flex flex-column justify-content-start">
