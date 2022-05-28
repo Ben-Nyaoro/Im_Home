@@ -14,7 +14,7 @@
 			</div>
 		<div d-flex>
 			<ul class="list-inline">
-				<li><b>Started at:</b> <%= @journey.created_at %> </li>
+				<li><b>Started at:</b> <%= @journey.created_at.strftime('%d-%b-%Y %H:%M:%S') %> </li>
 				<li><b>Estimated:</b> <%= @journey.time_estimate %> Mins </li>
 			</ul>
 		</div>
