@@ -1,27 +1,33 @@
 <div class="journeys-list m-3">
-  <h4>Your past journeys</h4>
-  <br>
-    <% @journeys.each do |journey| %>
-     <div class="each-journey">
-    <li><strong>Time & Date:</li> <%= journey.created_at %></strong></li>
-    <li><strong>Your Buddy:</strong></li>
-    <% buddy = Buddy.find_or_create_by(id: journey.buddy_id)%>
-    <% if buddy.profile_picture.attached? %>
-      <%= cl_image_tag(buddy.profile_picture.key, width: 50, height: 50, class: "rounded-circle") %>
-    <% else %>
-      <%= cl_image_tag("cld-sample", width: 50, height: 50, class: "rounded-circle" ) %>
-    <% end %>
-    <% starting_address = Address.find_or_create_by(id: journey.starting_point)  %>
-    <% destination_address = Address.find_or_create_by(id: journey.destination) %>
-    <li><strong>From: </li></strong><p><%=  starting_address.address_line1%></p>
-    <p>  <%= starting_address.address_line2 unless starting_address.address_line2.nil?%></p>
-    <p>   <%= starting_address.postcode%>
-          <%= starting_address.city%></p>
-    <li><strong>To: </li></strong><p><%=  destination_address.address_line1%></p>
-    <p>  <%= destination_address.address_line2 unless destination_address.address_line2.nil?%></p>
-    <p>   <%= destination_address.postcode%>
-          <%= destination_address.city%></p>
-          <br><br>
-    <% end %>
-  </div>
+		<div class="container">
+			<ul class="nav nav-tabs">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="#">My Past Journeys</a>
+				</li>
+				<li class="nav-item">
+					<%= link_to "Current Journey", @active_journeys_path, class: "nav-link" %>
+				</li>
+			</ul>
+			<% @journeys.each do |journey| %>
+			<div class="notification">
+				<div class ="text-center">
+					<% if journey.buddy.profile_picture.attached? %>
+						<%= cl_image_tag(journey.buddy.profile_picture.key, class: "rounded-circle avatar-large") %>
+					<% else %>
+						<%= cl_image_tag("cld-sample", class: "rounded-circle avatar-large" ) %>
+					<% end %> <br>
+						<li class="text-dark"><%= journey.buddy.name %></li>
+				</div>  
+				<div class="notification-content fw-light text-dark">
+					<li class="text-dark"><strong>From:</strong> <%= journey.starting_point.address_line1 %></li>
+					<li class="text-dark"><strong>To:</strong> <%= journey.destination.address_line1 %> </li>
+					<li class="text-dark fs"><strong>Time</strong> & Date: <%= journey.created_at.strftime('%d-%b-%Y %H:%M:%S') %></li>
+					<li class="text-dark"><strong>Status:</strong> <%= journey.journey_status %> </li>
+				</div>
+				<div class="notification-actions">
+					<div class="btn button-oval ml-1 mt-1"> <%= link_to "Remove", journey_path(journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
+				</div>
+			</div>
+			<% end %>
+		</div>
 </div>
