@@ -163,6 +163,23 @@ li {
 
 }
 
+.card-2 {
+  background-color: $ming-light;
+  width: 500px;
+  max-width: 520px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: 0px 0.3rem 0.3rem rgba(rgba(103, 98, 98, 0.575), 0.5);
+  position: relative;
+  margin-left: 40%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-right: 50%;
+
+}
+
 .centered-button {
   display: flex;
   flex-direction: column;
@@ -182,6 +199,14 @@ li {
 //     overflow: hidden;
 //     margin-left: 40%;
 //     margin-right: 50%;
+// }
+
+.list-inline {
+  width: 500px;
+}
+
+// .profile-buttons {
+//   width: 500px;
 // }
 
  @media screen and (max-width: 550px) {
@@ -207,5 +232,12 @@ li {
         align-items: baseline;
         column-gap: 5px;
         font-size: small;
+    }
+  }
+
+  @media screen and (min-width: 550px) {
+    .profile-body {
+      width: 300px;
+      max-width: 300px;
     }
   }

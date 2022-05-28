@@ -1,6 +1,5 @@
-<div class="container-flex">
-		<div class="text-center">
-    <div class="profile-details ml-8 d-flex flex-column justify-content-center">
+<div class="container-flex profile-body text-center">
+    <div class="card profile-details ml-8 d-flex flex-column justify-content-center">
 			<ul class="list-inline">
 			<% if current_user.profile_picture.attached? %>
 				<li class="mr-2"><%= cl_image_tag(current_user.profile_picture.key, width: 200, height: 200, class: "rounded-circle") %></li>
@@ -13,30 +12,30 @@
 				<li class="fw-light dark-gray"><span class="fw-bold">Email:</span> <%= current_user.email %></li>
 				<li class="fw-light dark-gray"><span class="fw-bold">Phone:</span> <%= current_user.phone_number %></li>
 				<li class="btn button-oval yellow"><%= link_to 'Edit', edit_user_registration_path, class: "yellow"  %> </li>
-			</ul><hr>
+			</ul>
     </div>
     <div class="profile-buttons d-flex flex-column justify-content-start">
 			<div class="list-inline text-decoration-none m-2">
 				<%= link_to buddies_path do %>
-					<div class="buddies-icon ms-2 d-flex shadow-sm p-3 mb-2 bg-body rounded">
+					<div class="card-2">
 						<li class="dark-gray">My Buddies</li>
 						<%= image_tag "Property 1=bi_people.png", width: 30, height: 30 %>
 					</div>
 				<% end %>
 				<%= link_to safe_places_path do %>
-					<div class="buddies-icon ms-2 d-flex shadow-sm p-3 mb-2 bg-body rounded">
+					<div class="card-2">
 						<li class="dark-gray">My Safe Places</li>
 						<%= image_tag "Property 1=ic_outline-place.png", width: 30, height: 30 %>
 					</div>
 				<% end %>
 				<%= link_to journeys_path do %>
-					<div class="buddies-icon ms-2 d-flex shadow-sm p-3 mb-2 bg-body rounded">
+					<div class="card-2">
 						<li class="dark-gray">My Journeys</li>
 						<%= image_tag "Property 1=simple-icons_yourtraveldottv.png", width: 30, height: 30 %>
 					</div>
 				<% end %>
 				<%= link_to destroy_user_session_path, method: :delete do %>
-					<div class="buddies-icon ms-2 d-flex shadow-sm p-3 mb-2 bg-body rounded">
+					<div class="card-2">
 						<li class="dark-gray">Logout</li>
 						<%= image_tag "Property 1=Log out.png", width: 30, height: 30 %>
 					</div>
