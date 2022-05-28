@@ -48,7 +48,7 @@
   justify-content: flex-start;
   flex-direction: row;
   margin: 4px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .avatar {
@@ -88,10 +88,6 @@ h3 {
   background-color: rgba(26, 95, 105, 0.101);
 }
 
-// .email {
-//   background-color: rgba(26, 95, 105, 0.101);
-// }
-
 .buddy-profile {
   padding: 2em;
   border-width: 1px;
@@ -102,7 +98,7 @@ h3 {
 }
 
 .yellow {
-  color: #F5EEDC;
+  color: #F5EEDC !important;
 }
 
 .dark-gray {
@@ -126,15 +122,6 @@ h3 {
   border-style: solid;
   margin-bottom: 3%;
 }
-
-// .each-journey {
-//   padding: 2em;
-//   border-width: 1px;
-//   border-color: #3130304a;
-//   border-radius: 5%;
-//   border-style: solid;
-//   margin-bottom: 3%;
-// }
 
 .each-journey {
   border-top: solid;
