@@ -11,13 +11,13 @@
 					<% end %>
 				</div>
 				<div class="col-6 list-inline">
-					<li><%= buddy.name %></li>
-					<li><%= buddy.phone_number %></li>
+					<li class="dark-gray"><%= buddy.name %></li>
+					<li class="dark-gray"><%= buddy.phone_number %></li>
 				</div>
 			</div><br><hr>
 			<% end %>
 	<% end %>
 		<div class=" d-flex justify-content-center">
-				<li class="list-inline btn button-oval btn-sm"><%= link_to "Add Buddy", new_buddy_path %></li>
+				<li class="list-inline btn button-oval yellow"><%= link_to "Add Buddy", new_buddy_path, class: "yellow" %></li>
 		</div>
 </div>
