@@ -183,3 +183,29 @@ li {
 //     margin-left: 40%;
 //     margin-right: 50%;
 // }
+
+ @media screen and (max-width: 550px) {
+    .card-trip-infos {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: stretch;
+      justify-content: space-between;
+      align-items: baseline;
+      column-gap: 5px;
+      font-size: small;
+   }
+  }
+
+  @media screen and (max-width: 550px) {
+    .journey-show {
+      display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content:center;
+        justify-content:baseline;
+        align-items: baseline;
+        column-gap: 5px;
+        font-size: small;
+    }
+  }
