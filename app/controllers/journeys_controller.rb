@@ -6,7 +6,6 @@ class JourneysController < ApplicationController
   end
 
   def show
-    @user_safe_places = current_user.safe_places
   end
 
   def new
@@ -15,7 +14,7 @@ class JourneysController < ApplicationController
     @buddies = current_user.buddies
     @journey = Journey.new
     @user.safe_places.each do |s|
-      @user_safe_places << [s.name, s.address]
+      @user_safe_places << [s.name, s.address.id]
     end
     return @user_safe_places
   end
@@ -23,8 +22,17 @@ class JourneysController < ApplicationController
   def create
     @journey = Journey.new(journey_params)
     @journey.user = current_user
-		@journey.starting_point = Address.find_or_create_by(journey_params[:starting_point_id])
-    @journey.destination = Address.find_or_create_by(journey_params_destination[:destination_id])
+    if params[:journey][:starting_point_id].instance_of?(ActionController::Parameters)
+      @journey.starting_point = Address.find_or_create_by(address_line1: params[:journey][:starting_point_id][:address_line1],address_line2: params[:journey][:starting_point_id][:address_line2], postcode: params[:journey][:starting_point_id][:postcode], city: params[:journey][:starting_point_id][:city])
+    else
+      @journey.starting_point = Address.find_or_create_by(id: params[:journey][:starting_point_id].to_i)
+    end
+    if params[:journey][:destination_id].instance_of?(ActionController::Parameters)
+      @journey.destination = Address.find_or_create_by(address_line1: params[:journey][:destination_id][:address_line1], address_line2: params[:journey][:destination_id][:address_line2], postcode: params[:journey][:destination_id][:postcode], city: params[:journey][:destination_id][:city])
+    else
+      @journey.destination = Address.find_or_create_by(id: params[:journey][:destination_id].to_i)
+    end
+
     @journey.save!
     if @journey.save!
       @journey.update(journey_status: :started)
@@ -35,6 +43,10 @@ class JourneysController < ApplicationController
   end
 
   def edit
+    @user_safe_places = []
+    @user = current_user
+    @buddies = current_user.buddies
+    @journey = Journey.new
   end
 
   def update
@@ -57,10 +69,7 @@ class JourneysController < ApplicationController
   end
 
   def journey_params
-    params.require(:journey).permit(:destination_id, :mode_of_transportation, :time_estimate, :buddy_id, starting_point_id: [:address_line1, :address_line2, :postcode, :city])
+    params.require(:journey).permit(:mode_of_transportation, :time_estimate, :buddy_id, starting_point_id: [:id, :address_line1, :address_line2, :postcode, :city], destination_id: [:id, :address_line1, :address_line2, :postcode, :city])
   end
 
-  def journey_params_destination
-    params.require(:journey).permit(destination_id: [:address_line1, :address_line2, :postcode, :city])
-  end
 end

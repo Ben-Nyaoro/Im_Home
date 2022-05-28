@@ -1,20 +1,4 @@
 
-
-<p>Starting Point:</p>
-<%  starting_point = Address.find_or_create_by(id: @journey.starting_point)  %>
-<p><%=  starting_point.address_line1 %></p>
-<p><%=  starting_point.address_line2 %></p>
-<p><%=  starting_point.postcode %>
-<%=  starting_point.city %></p>
-<br>
-<p> Destination:</p>
-<%  destination = Address.find_or_create_by(id: @journey.destination)  %>
-<p><%=  destination.address_line1 %></p>
-<p><%=  destination.address_line2 %></p>
-<p><%=  destination.postcode %>
-<%=  destination.city %></p>
-
-<p>Your Buddy:</p>
 <% buddy = Buddy.find_or_create_by(id: @journey.buddy_id)%>
 <%= buddy.name %>
 <% if buddy.profile_picture.attached? %>
@@ -22,6 +6,19 @@
 <% else %>
 	<%= cl_image_tag("cld-sample", width: 50, height: 50, class: "rounded-circle" ) %>
 <% end %>
+
+<p>Starting Point:</p>
+<p><%=  @journey.starting_point.address_line1 %></p>
+<p><%=  @journey.starting_point.address_line2 %></p>
+<p><%=  @journey.starting_point.postcode %>
+<%=  @journey.starting_point.city %></p>
+<br>
+<p> Destination:</p>
+<p><%=  @journey.destination.address_line1 %></p>
+<p><%=   @journey.destination.address_line2 %></p>
+<p><%=   @journey.destination.postcode %>
+<%=  @journey.destination.city %></p>
+
 
 
 <div class="btn button-oval ml-1 mt-1"> <%= link_to 'Update', edit_journey_path(@journey), :class => "btn" %></div>
