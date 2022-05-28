@@ -1,4 +1,4 @@
-<div class="container-flex mt-3 ml-3 justify-content-around">
+<div class="container-flex mt-3 justify-content-around">
 	<div class="row mx-3">
 		<div class="col-6">
 			<div class="row">
@@ -7,15 +7,14 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="col-6">
+		<div class="col-1 header ">
 			<% unless user_signed_in? %>
-				<div class="col-2 d-flex">
+				<div class="col-1 d-flex">
 					<div class="login">
 						<%= link_to new_user_session_path do %>
 							<p>Login&nbsp;</p>
 						<% end %>
 					</div>
-
 					<div>
 						<p> |&nbsp;</p>
 					</div>

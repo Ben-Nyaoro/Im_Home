@@ -1,10 +1,10 @@
-<div class="container">
-	<h1>My Safe Places</h1>
+<div class="container mt-3">
+	<h3>My Safe Places</h3><hr>
 	<ul class="list-inline">
 		<% @safe_places.each do |safe_place| %>
 			<li><%= link_to safe_place_path(safe_place) do %>
       <%= safe_place.name %>
-				<% end %>
+				<% end %><hr>
       </li>
 		<% end %>
 	</ul>

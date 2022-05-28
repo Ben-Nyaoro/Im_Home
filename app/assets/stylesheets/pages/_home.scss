@@ -48,7 +48,7 @@
   justify-content: flex-start;
   flex-direction: row;
   margin: 4px;
-  padding: 10px;
+  padding: 5px;
 }
 
 .avatar {
@@ -75,3 +75,68 @@ a {
 //   overflow: hidden;
 //   z-index: 1;
 
+.header {
+  margin: auto;
+}
+
+h3 {
+  font-size: 22px;
+}
+
+.form-control {
+  // background-color: #ba8f9528;
+  background-color: rgba(26, 95, 105, 0.101);
+}
+
+.buddy-profile {
+  padding: 2em;
+  border-width: 1px;
+  border-color: #3130304a;
+  border-radius: 5%;
+  border-style: solid;
+  margin-bottom: 3%;
+}
+
+.yellow {
+  color: #F5EEDC !important;
+}
+
+.profile-buttons {
+  width: 800px;
+  margin-bottom: 200px;
+}
+
+// .profile-details {
+
+// }
+
+.journeys-list {
+  padding: 2em;
+  border-width: 1px;
+  border-color: #3130304a;
+  border-radius: 5%;
+  border-style: solid;
+  margin-bottom: 3%;
+}
+
+.each-journey {
+  border-top: solid;
+  border-color: #3130304a;
+  padding: 20px;
+  line-height: 1.2;
+}
+
+li {
+  list-style-type:none;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-decoration: underline #3130304a;
+}
+
+.starting-point {
+  margin: 1em;
+}
+
+.starting-point-buddy {
+  margin: 1em;
+}
