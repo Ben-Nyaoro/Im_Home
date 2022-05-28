@@ -10,16 +10,10 @@
 				<ul class="list-inline">
 					<li class="dark-gray"><b>From:</b> <%= @journey.starting_point.address_line1 %></li>
 					<li class="dark-gray"><b>To:</b> <%= @journey.destination.address_line1 %> </li>
-					<li class="dark-gray"><b>Started at:</b> <%= @journey.created_at %> </li>
+					<li class="dark-gray"><b>Started at:</b> <%= @journey.created_at.strftime('%d-%b-%Y %H:%M:%S') %> </li>
 					<li class="dark-gray"><b>Estimated:</b> <%= @journey.time_estimate %> Mins </li>
 				</ul>
 			</div>
-		<div d-flex>
-			<ul class="list-inline">
-				<li><b>Started at:</b> <%= @journey.created_at.strftime('%d-%b-%Y %H:%M:%S') %> </li>
-				<li><b>Estimated:</b> <%= @journey.time_estimate %> Mins </li>
-			</ul>
-		</div>
 
 		<div id="app"></div>
 		<div>
