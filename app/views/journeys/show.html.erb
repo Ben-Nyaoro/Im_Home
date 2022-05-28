@@ -8,16 +8,12 @@
 		<div class="card-trip-infos">
 			<div d-flex>
 				<ul class="list-inline">
-					<li><b>From:</b> <%= @journey.starting_point.address_line1 %></li>
-					<li><b>To:</b> <%= @journey.destination.address_line1 %> </li>
+					<li class="dark-gray"><b>From:</b> <%= @journey.starting_point.address_line1 %></li>
+					<li class="dark-gray"><b>To:</b> <%= @journey.destination.address_line1 %> </li>
+					<li class="dark-gray"><b>Started at:</b> <%= @journey.created_at %> </li>
+					<li class="dark-gray"><b>Estimated:</b> <%= @journey.time_estimate %> Mins </li>
 				</ul>
 			</div>
-		<div d-flex>
-			<ul class="list-inline">
-				<li><b>Started at:</b> <%= @journey.created_at %> </li>
-				<li><b>Estimated:</b> <%= @journey.time_estimate %> Mins </li>
-			</ul>
-		</div>
 		<div id="app"></div>
 		<div>
 			<%= javascript_pack_tag 'timer'%>
@@ -27,7 +23,7 @@
 			<% else %>
 				<%= cl_image_tag("cld-sample", class: "rounded-circle card-trip-user avatar-bordered" ) %>
 			<% end %>
-			<p class="card-trip-pricing"><%= buddy.name %></p>
+			<p class="card-trip-pricing relative"><%= buddy.name %></p>
 		</div>
 		</div><hr>
 		<div class= "d-flex justify-content-around">
