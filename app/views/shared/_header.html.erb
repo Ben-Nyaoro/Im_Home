@@ -7,12 +7,12 @@
 				<% end %>
 			</div>
 		</div>
-		<div class="col-1 header ">
+		<div class="col-1 header">
 			<% unless user_signed_in? %>
 				<div class="col-1 d-flex">
 					<div class="login">
 						<%= link_to new_user_session_path do %>
-							<p>Login&nbsp;</p>
+							<p class="dark-gray">Login&nbsp;</p>
 						<% end %>
 					</div>
 					<div>

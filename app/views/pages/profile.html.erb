@@ -7,37 +7,37 @@
 			<% else %>
 				<li class="mr-2"><%= cl_image_tag("cld-sample", width: 200, height: 200, class: "rounded-circle" ) %></li>
 			<% end %>
-				<li class="fw-bold fs-5"><%= current_user.name %></li>
+				<li class="fw-bold fs-5 dark-gray"><%= current_user.name %></li>
 			</ul>
 			<ul class="list-inline">
-				<li class="fw-light"><span class="fw-bold">Email:</span> <%= current_user.email %></li>
-				<li class="fw-light"><span class="fw-bold">Phone:</span> <%= current_user.phone_number %></li>
-				<li class="btn button-oval yellow"><%= link_to 'Edit', edit_user_registration_path %> </li>
+				<li class="fw-light dark-gray"><span class="fw-bold">Email:</span> <%= current_user.email %></li>
+				<li class="fw-light dark-gray"><span class="fw-bold">Phone:</span> <%= current_user.phone_number %></li>
+				<li class="btn button-oval yellow"><%= link_to 'Edit', edit_user_registration_path, class: "yellow"  %> </li>
 			</ul><hr>
     </div>
     <div class="profile-buttons d-flex flex-column justify-content-start">
 			<div class="list-inline text-decoration-none m-2">
 				<%= link_to buddies_path do %>
 					<div class="buddies-icon ms-2 d-flex shadow-sm p-3 mb-2 bg-body rounded">
-						<li>My Buddies</li>
+						<li class="dark-gray">My Buddies</li>
 						<%= image_tag "Property 1=bi_people.png", width: 30, height: 30 %>
 					</div>
 				<% end %>
 				<%= link_to safe_places_path do %>
 					<div class="buddies-icon ms-2 d-flex shadow-sm p-3 mb-2 bg-body rounded">
-						<li>My Safe Places</li>
+						<li class="dark-gray">My Safe Places</li>
 						<%= image_tag "Property 1=ic_outline-place.png", width: 30, height: 30 %>
 					</div>
 				<% end %>
 				<%= link_to journeys_path do %>
 					<div class="buddies-icon ms-2 d-flex shadow-sm p-3 mb-2 bg-body rounded">
-						<li>My Journeys</li>
+						<li class="dark-gray">My Journeys</li>
 						<%= image_tag "Property 1=simple-icons_yourtraveldottv.png", width: 30, height: 30 %>
 					</div>
 				<% end %>
 				<%= link_to destroy_user_session_path, method: :delete do %>
 					<div class="buddies-icon ms-2 d-flex shadow-sm p-3 mb-2 bg-body rounded">
-						<li>Logout</li>
+						<li class="dark-gray">Logout</li>
 						<%= image_tag "Property 1=Log out.png", width: 30, height: 30 %>
 					</div>
 				<% end %>

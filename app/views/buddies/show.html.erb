@@ -7,12 +7,12 @@
 		<% else %>
 			<%= cl_image_tag("cld-sample", width: 200, height: 200, class: "rounded-circle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false) %>
 		<% end %><hr>
-	<li class="list-inline"><%= @buddy.phone_number %></li><br>
+	<li class="list-inline dark-gray"><%= @buddy.phone_number %></li><br>
   </div>
 		<div class ="d-flex justify-content-around">
-			<li class="btn button-oval"><%= link_to :Back, buddies_path %></li>
-			<li class="btn button-oval"><%= link_to :Edit, edit_buddy_path(@buddy) %></li>
-			<li class="btn button-oval"><%= link_to :Remove, buddy_path(@buddy), method: :delete, data: {:confirm => "You sure?" } %></li>
+			<li class="btn button-oval"><%= link_to :Back, buddies_path, class: "yellow"  %></li>
+			<li class="btn button-oval"><%= link_to :Edit, edit_buddy_path(@buddy), class: "yellow" %></li>
+			<li class="btn button-oval"><%= link_to :Remove, buddy_path(@buddy), method: :delete, data: {:confirm => "You sure?" }, class: "yellow"  %></li>
 		</div>
   </div>
 </div>
