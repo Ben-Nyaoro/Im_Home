@@ -1,36 +1,37 @@
-
-<div class="journeys-show m-3 d-flex flex-direction-row">
-<section class="starting-point">
-<li><p>Starting Point: </p></li>
-<p>Starting Point:</p>
-<p><%=  @journey.starting_point.address_line1 %></p>
-<p><%=  @journey.starting_point.address_line2 %></p>
-<p><%=  @journey.starting_point.postcode %>
-<%=  @journey.starting_point.city %></p>
-<br>
-</section>
-<section class="starting-point">
-<li><p>Destination: </p></li>
-<p> Destination:</p>
-<p><%=  @journey.destination.address_line1 %></p>
-<p><%=   @journey.destination.address_line2 %></p>
-<p><%=   @journey.destination.postcode %>
-<%=  @journey.destination.city %></p>
-</section>
-<section class="starting-point">
-<li><p>Your Buddy:</p></li>
-<% buddy = Buddy.find_or_create_by(id: @journey.buddy_id)%>
-<%= buddy.name %>
-<% if buddy.profile_picture.attached? %>
-	<%= cl_image_tag(buddy.profile_picture.key, width: 50, height: 50, class: "rounded-circle") %>
-<% else %>
-	<%= cl_image_tag("cld-sample", width: 50, height: 50, class: "rounded-circle" ) %>
-<% end %>
-</section>
+<div class="container">
+	<div class="card-trip m-4">
+		<div style="width: 100%; height: 200px;"
+			data-controller="mapbox"
+			data-mapbox-markers-value="<%= @markers.to_json %>"
+			data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+		</div>
+		<div class="card-trip-infos">
+			<div d-flex>
+				<ul class="list-inline">
+					<li><b>From:</b> <%= @journey.starting_point.address_line1 %></li>
+					<li><b>To:</b> <%= @journey.destination.address_line1 %> </li>
+				</ul>
+			</div>
+		<div d-flex>
+			<ul class="list-inline">
+				<li><b>Started at:</b> <%= @journey.created_at %> </li>
+				<li><b>Estimated:</b> <%= @journey.time_estimate %> Mins </li>
+			</ul>
+		</div>
+		<div id="app"></div>
+		<div>
+			<%= javascript_pack_tag 'timer'%>
+			<% buddy = Buddy.find_or_create_by(id: @journey.buddy_id)%>
+			<% if buddy.profile_picture.attached? %>
+				<%= cl_image_tag(buddy.profile_picture.key, class: "rounded-circle card-trip-user avatar-bordered") %>
+			<% else %>
+				<%= cl_image_tag("cld-sample", class: "rounded-circle card-trip-user avatar-bordered" ) %>
+			<% end %>
+			<p class="card-trip-pricing"><%= buddy.name %></p>
+		</div>
+		</div><hr>
+		<div class= "d-flex justify-content-around">
+			<div class="btn button-oval ml-1 mt-1"> <%= link_to "End Journey", journey_path(@journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
+			<div class="btn button-oval ml-1 mt-1"> <%= link_to 'Update', edit_journey_path(@journey), :class => "btn" %></div>
+		</div>
 </div>
-<section class="m-3">
-<div class="btn button-oval ml-1 mt-1"> <%= link_to "End Journey", journey_path(@journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
-</section>
-<section class="m-3">
-<div class="btn button-oval ml-1 mt-1"> <%= link_to 'Update', edit_journey_path(@journey), :class => "btn" %></div>
-</section>
