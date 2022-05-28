@@ -1,20 +1,21 @@
+
 <div class="journeys-show m-3 d-flex flex-direction-row">
 <section class="starting-point">
 <li><p>Starting Point: </p></li>
-<%  starting_point = Address.find_or_create_by(id: @journey.starting_point)  %>
-<p><%=  starting_point.address_line1 %></p>
-<p><%=  starting_point.address_line2 %></p>
-<p><%=  starting_point.postcode %>
-<%=  starting_point.city %></p>
+<p>Starting Point:</p>
+<p><%=  @journey.starting_point.address_line1 %></p>
+<p><%=  @journey.starting_point.address_line2 %></p>
+<p><%=  @journey.starting_point.postcode %>
+<%=  @journey.starting_point.city %></p>
 <br>
 </section>
 <section class="starting-point">
 <li><p>Destination: </p></li>
-<%  destination = Address.find_or_create_by(id: @journey.destination)  %>
-<p><%=  destination.address_line1 %></p>
-<p><%=  destination.address_line2 %></p>
-<p><%=  destination.postcode %>
-<%=  destination.city %></p>
+<p> Destination:</p>
+<p><%=  @journey.destination.address_line1 %></p>
+<p><%=   @journey.destination.address_line2 %></p>
+<p><%=   @journey.destination.postcode %>
+<%=  @journey.destination.city %></p>
 </section>
 <section class="starting-point">
 <li><p>Your Buddy:</p></li>

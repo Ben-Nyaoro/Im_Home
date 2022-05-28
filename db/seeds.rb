@@ -27,8 +27,8 @@ new_journey2 = Journey.create!(starting_point_id: new_address3.id, destination_i
   mode_of_transportation: "Train", time_estimate: "40", user_id: 1, buddy_id: 2)
 
 new_safe_place1 = SafePlace.create!(name: "Home", address_id: 1, user_id: 1)
-new_safe_place1 = SafePlace.create!(name: "Work", address_id: 2, user_id: 1)
-new_safe_place1 = SafePlace.create!(name: "Friend", address_id: 3, user_id: 1)
-new_safe_place1 = SafePlace.create!(name: "Parents", address_id: 4, user_id: 1)
+new_safe_place2 = SafePlace.create!(name: "Work", address_id: 2, user_id: 1)
+new_safe_place3 = SafePlace.create!(name: "Friend", address_id: 3, user_id: 1)
+new_safe_place4 = SafePlace.create!(name: "Parents", address_id: 4, user_id: 1)
 
 puts "Created"
