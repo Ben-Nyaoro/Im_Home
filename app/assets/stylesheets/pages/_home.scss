@@ -59,7 +59,7 @@
 
 a {
   text-decoration: none;
-  // color: $dark-gray;
+  color: $dark-gray;
 }
 
 // .button {
@@ -183,3 +183,45 @@ li {
 //     margin-left: 40%;
 //     margin-right: 50%;
 // }
+
+
+.card-description {
+  background-color: $ming-light;
+}
+
+.im-home-less-bolderder {
+  font-weight: bolder;
+  color: #313030f1;
+}
+
+.relative {
+  position: relative;
+  top: -110px;
+}
+
+ @media screen and (max-width: 550px) {
+    .card-trip-infos {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: stretch;
+      justify-content: space-between;
+      align-items: baseline;
+      column-gap: 5px;
+      font-size: small;
+   }
+  }
+
+  @media screen and (max-width: 550px) {
+    .journey-show {
+      display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-content:center;
+        justify-content:baseline;
+        align-items: baseline;
+        column-gap: 5px;
+        font-size: small;
+    }
+  }
+
