@@ -19,7 +19,7 @@
               <% if current_user.profile_picture.attached? %>
                 <li class="mr-2"><%= cl_image_tag(current_user.profile_picture.key, class: "rounded-circle avatar") %></li>
               <% else %>
-                <%= image_tag "Property 1=profile_pic.png", height: 40 %>
+                <%= image_tag "profile_navbar_icon.png", height: 40 %>
               <% end %>
             <% end %>
           </div>
