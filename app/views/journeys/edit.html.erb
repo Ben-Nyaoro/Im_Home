@@ -12,7 +12,7 @@
         </div>
         <div data-controller="visibility">
           <div data-visibility-target="startingsafe">
-        <%= f.input :starting_point_id, collection: @user_safe_places, label_method: :first, value_method: :second , prompt: "Choose from safe places or type address" %>
+        <%= f.input :starting_point_id, collection: @user_safe_places, prompt: "Choose from safe places or type address" %>
           </div>
           <button type="button" data-action="visibility#toggleTargetsStart visibility#buttonChangeStart" data-visibility-target="buttonStart" >Type address</button>
           <div data-visibility-target="starting" hidden >
@@ -25,7 +25,7 @@
           </div>
           <br><br>
           <div data-visibility-target="destisafe">
-          <%= f.input :destination_id, collection: @user_safe_places, label_method: :first, value_method: :second, prompt: "Choose from safe places or type address" %>
+          <%= f.input :destination_id, collection: @user_safe_places, prompt: "Choose from safe places or type address" %>
           </div>
           <button type="button" data-action="visibility#toggleTargetsDesti visibility#buttonChangeDesti" data-visibility-target="buttonDesti" >Type an address</button>
           <div data-visibility-target="destination" hidden>
