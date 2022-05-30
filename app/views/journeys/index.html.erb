@@ -1,20 +1,27 @@
 <div class="journeys-list m-3">
-		<div class="container">
-			<ul class="nav nav-tabs">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">My Past Journeys</a>
-				</li>
-				<li class="nav-item">
-					<%= link_to "Current Journey", @active_journeys_path, class: "nav-link" %>
-				</li>
-			</ul>
+	<div class="container" data-controller="filter">
+		<ul class="nav nav-tabs">
+			<li class="nav-item">
+				<button class="nav-link active" data-filter-target = "p"
+																			data-action="click->filter#pastJourney">
+				My Past Journeys</button>
+			</li>
+			
+			<li class="nav-item">
+				<Button class="nav-link" data-filter-target = "c"
+																data-action="click->filter#currentJourney">
+				Current Journey</Button>
+			</li>
+		</ul>
+
+		<div class="" data-filter-target = "past">
 			<% @journeys.each do |journey| %>
 			<div class="notification">
 				<div class ="text-center">
 					<% if journey.buddy.profile_picture.attached? %>
-						<%= cl_image_tag(journey.buddy.profile_picture.key, class: "rounded-circle avatar-large") %>
+						<%= cl_image_tag(journey.buddy.profile_picture.key, class: "rounded-circle avatar") %>
 					<% else %>
-						<%= cl_image_tag("cld-sample", class: "rounded-circle avatar-large" ) %>
+						<%= cl_image_tag("cld-sample", class: "rounded-circle avatar" ) %>
 					<% end %> <br>
 						<li class="text-dark"><%= journey.buddy.name %></li>
 				</div>  
@@ -25,9 +32,34 @@
 					<li class="text-dark"><strong>Status:</strong> <%= journey.journey_status %> </li>
 				</div>
 				<div class="notification-actions">
-					<div class="btn button-oval ml-1 mt-1"> <%= link_to "Remove", journey_path(journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
+					<div class="btn button-oval ml-1 mt-1"> <%= link_to "Remove", journeys_path(journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
+				</div>
+			</div>
+			<% end %><hr>
+		</div>
+
+		<div class="" data-filter-target = "current">
+			<% @current_journeys.each do |journey| %>
+			<div class="notification">
+				<div class ="text-center">
+					<% if journey.buddy.profile_picture.attached? %>
+						<%= cl_image_tag(journey.buddy.profile_picture.key, class: "rounded-circle avatar") %>
+					<% else %>
+						<%= cl_image_tag("cld-sample", class: "rounded-circle avatar" ) %>
+					<% end %> <br>
+						<li class="text-dark"><%= journey.buddy.name %></li>
+				</div>  
+				<div class="notification-content fw-light text-dark">
+					<li class="text-dark"><strong>From:</strong> <%= journey.starting_point.address_line1 %></li>
+					<li class="text-dark"><strong>To:</strong> <%= journey.destination.address_line1 %> </li>
+					<li class="text-dark fs"><strong>Time</strong> & Date: <%= journey.created_at.strftime('%d-%b-%Y %H:%M:%S') %></li>
+					<li class="text-dark"><strong>Status:</strong> <%= journey.journey_status %> </li>
+				</div>
+				<div class="notification-actions">
+					<div class="btn button-oval ml-1 mt-1"> <%= link_to "View", journey_path(journey), class: "btn" %></div>
 				</div>
 			</div>
 			<% end %>
 		</div>
+	</div>			
 </div>

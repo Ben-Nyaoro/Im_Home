@@ -2,7 +2,8 @@ class JourneysController < ApplicationController
   before_action :set_journey, only: %i[show edit destroy update]
 
   def index
-    @journeys = current_user.journeys
+    @journeys = current_user.journeys.where.not(journey_status: :started)
+    @current_journeys = current_user.journeys.where(journey_status: :started)
   end
 
   def show
