@@ -7,6 +7,19 @@ class JourneysController < ApplicationController
   end
 
   def show
+		# the `geocoded` scope filters only journey starting and destination with coordinates (latitude & longitude)
+		@markers = [{
+			lat: @journey.starting_point.latitude,
+			lng: @journey.starting_point.longitude,
+			image_url: helpers.asset_url("starting_point.png"),
+			info_window: render_to_string(partial: "info_start_window", locals: { journey: @journey.starting_point })
+		}]
+		@markers << {
+			lat: @journey.destination.latitude,
+			lng: @journey.destination.longitude,
+			image_url: helpers.asset_url("destination.png"),
+			info_window: render_to_string(partial: "info_end_window", locals: { journey: @journey.destination })
+		}
   end
 
   def new
