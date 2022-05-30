@@ -69,3 +69,6 @@ gem 'cloudinary', '~> 1.16.0'
 
 #Geocoding gem for address autocomplete and map marking
 gem "geocoder"
+
+#Twilio gem for SMS
+gem 'twilio-ruby'
