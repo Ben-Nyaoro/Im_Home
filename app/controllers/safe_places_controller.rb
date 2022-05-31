@@ -10,7 +10,7 @@ class SafePlacesController < ApplicationController
 		@markers = [{
    		lat: @safe_place.address.latitude,
    		lng: @safe_place.address.longitude,
-			image_url: helpers.asset_url("marker.png")
+			image_url: helpers.asset_url("destination.png")
 		}]
   end
 
