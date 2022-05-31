@@ -1,25 +1,25 @@
 <% if user_signed_in? %>
 <section class="rosy-background">
-<div class="navbar navbar-expand-sm summer fixed-bottom rosy-background">
-  <div class="container-fluid fixed-bottom">
+<div class="navbar navbar-expand-sm summer fixed-bottom mt-2">
+  <div class="container-fluid fixed-bottom mb-1 align-bottom bg-light">
       <div class="col-12 text-center">
-        <div class="row">
+        <div class="row mt-1">
           <div class="col-4">
             <%= link_to safe_places_path do %>
-		    	    <%= image_tag "safeplace_navbar_icon.png", height: 40 %>
+		    	    <%= image_tag "safe-img.png", height: 40 %>
             <% end %>
           </div>
           <div class="col-4 logo-navbar">
             <%= link_to root_path do %>
-		    	    <%= image_tag "Logo-rounded.png", height: 50 %>
+		    	    <%= image_tag "im-home-img.png" %>
             <% end %>
           </div>
           <div class="col-4">
             <%= link_to profile_path do %>
               <% if current_user.profile_picture.attached? %>
-                <li class="mr-2"><%= cl_image_tag(current_user.profile_picture.key, class: "rounded-circle avatar") %></li>
+                <%= cl_image_tag(current_user.profile_picture.key, class: "rounded-circle avatar") %>
               <% else %>
-                <%= image_tag "profile_navbar_icon.png", height: 40 %>
+                <%= image_tag "profile-img.png", height: 40 %>
               <% end %>
             <% end %>
           </div>
