@@ -1,8 +1,10 @@
 <div class="container">
   <div class="row justify-content-center">
-  <h3>Please type your new safe place's address:</h3>
+  <h3>Update your new safe place's address:</h3>
 			<%= simple_form_for [@address] do |f| %>
-				<%= f.input :address_line1 %>
+				<%= f.input :address_line1,
+              input_html: { data: { geocoder_target: "address_line1" }, class: "d-none"},
+              wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] }} %>
         <%= f.input :address_line2 %>
         <%= f.input :postcode %>
 				<%= f.input :city %>

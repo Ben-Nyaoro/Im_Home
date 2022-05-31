@@ -11,8 +11,18 @@ import { Controller } from "stimulus"
 
 export default class extends Controller {
   static targets = [ "output" ]
-
+  initialize() {
+    // Called once, when the controller is first instantiated
+		console.log('I am the initializer');
+  }
   connect() {
+ // Called any time the controller is connected to the DOM
     this.outputTarget.textContent = 'Hello, Stimulus!'
+		console.log('Hello, Stimulus!');
+  }
+
+  disconnect() {
+    // Called any time the controller is disconnected from the DOM
+		console.log('I am disconnected!');
   }
 }

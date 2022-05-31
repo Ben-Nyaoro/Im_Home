@@ -2,10 +2,24 @@ class JourneysController < ApplicationController
   before_action :set_journey, only: %i[show edit destroy update]
 
   def index
-    @journeys = current_user.journeys
+    @journeys = current_user.journeys.where.not(journey_status: :started)
+    @current_journeys = current_user.journeys.where(journey_status: :started)
   end
 
   def show
+		# the `geocoded` scope filters only journey starting and destination with coordinates (latitude & longitude)
+		@markers = [{
+			lat: @journey.starting_point.latitude,
+			lng: @journey.starting_point.longitude,
+			image_url: helpers.asset_url("starting_point.png"),
+			info_window: render_to_string(partial: "info_start_window", locals: { journey: @journey.starting_point })
+		}]
+		@markers << {
+			lat: @journey.destination.latitude,
+			lng: @journey.destination.longitude,
+			image_url: helpers.asset_url("destination.png"),
+			info_window: render_to_string(partial: "info_end_window", locals: { journey: @journey.destination })
+		}
   end
 
   def new
