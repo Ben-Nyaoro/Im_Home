@@ -7,8 +7,15 @@ class AddressesController < ApplicationController
 
   def create
     @user = current_user
-    @address = Address.create!(address_params)
-
+    @address = Address.new(address_params)
+    if @address.postcode.nil?
+      address_array = @address.address_line1.split(',')
+      address_sub_array = address_array[1].split
+      @address.address_line1 = address_array[0]
+      @address.postcode = address_sub_array[0].to_i
+      @address.city = address_sub_array[1]
+    end
+      @address.save!
     if @address.save
       redirect_to new_safe_place_path
     end
