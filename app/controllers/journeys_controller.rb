@@ -50,7 +50,7 @@ class JourneysController < ApplicationController
     @journey.save!
     if @journey.save!
       @journey.update(journey_status: :started)
-      TwilioClient.new.send_text('+4915784477390', twilio_message)
+      # TwilioClient.new.send_text('+4915784477390', start_message)
       redirect_to journey_path(@journey)
     else
       render :new, notice: "Your journey could not be started."
@@ -74,6 +74,7 @@ class JourneysController < ApplicationController
 
   def destroy
     @journey.update(journey_status: :completed)
+    # TwilioClient.new.send_text('+4915784477390', finish_message)
     redirect_to root_path
   end
 
@@ -87,8 +88,13 @@ class JourneysController < ApplicationController
     params.require(:journey).permit(:mode_of_transportation, :time_estimate, :buddy_id, starting_point_id: [:id, :address_line1, :address_line2, :postcode, :city], destination_id: [:id, :address_line1, :address_line2, :postcode, :city])
   end
 
-  def twilio_message
+  def start_message
     @user = current_user
-    "#{@user.name} has started a journey"
+    "#{@user.name} has started a journey from #{@journey.starting_point.address_line1} to #{@journey.destination.address_line1} (#{@journey.time_estimate} min.)"
+  end
+
+  def finish_message
+    @user = current_user
+    "#{@user.name} is safe."
   end
 end
