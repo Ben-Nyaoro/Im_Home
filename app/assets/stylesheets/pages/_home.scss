@@ -147,10 +147,11 @@ li {
 }
 
 .card {
-  background-color: $ming-light;
+  background-color: $ming-lighter;
   width: 360px;
   max-width: 520px;
   display: flex;
+  justify-items: center;
   flex-direction: column;
   overflow: hidden;
   border-radius: 2rem;
@@ -164,13 +165,13 @@ li {
 }
 
 .card-2 {
-  background-color: $ming-light;
+  background-color: $ming-lighter;
   width: 500px;
   max-width: 520px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 2rem;
+  border-radius: 15px;
   box-shadow: 0px 0.3rem 0.3rem rgba(rgba(103, 98, 98, 0.575), 0.5);
   position: relative;
   margin-left: 40%;
@@ -178,6 +179,16 @@ li {
   margin-bottom: 50px;
   margin-right: 50%;
 
+}
+
+.profile-section {
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 800px) {
+  .profile-section {
+    width: 800px;
+  }
 }
 
 .centered-button {
@@ -209,35 +220,35 @@ li {
 //   width: 500px;
 // }
 
- @media screen and (max-width: 550px) {
-    .card-trip-infos {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-content: stretch;
-      justify-content: space-between;
-      align-items: baseline;
-      column-gap: 5px;
-      font-size: small;
-   }
-  }
+//  @media screen and (max-width: 550px) {
+//     .card-trip-infos {
+//       display: flex;
+//       flex-direction: row;
+//       flex-wrap: nowrap;
+//       align-content: stretch;
+//       justify-content: space-between;
+//       align-items: baseline;
+//       column-gap: 5px;
+//       font-size: small;
+//    }
+//   }
 
-  @media screen and (max-width: 550px) {
-    .journey-show {
-      display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-content:center;
-        justify-content:baseline;
-        align-items: baseline;
-        column-gap: 5px;
-        font-size: small;
-    }
-  }
+//   @media screen and (max-width: 550px) {
+//     .journey-show {
+//       display: flex;
+//         flex-direction: column;
+//         flex-wrap: nowrap;
+//         align-content:center;
+//         justify-content:baseline;
+//         align-items: baseline;
+//         column-gap: 5px;
+//         font-size: small;
+//     }
+//   }
 
-  @media screen and (min-width: 550px) {
-    .profile-body {
-      width: 300px;
-      max-width: 300px;
-    }
-  }
+//   @media screen and (min-width: 550px) {
+//     .profile-body {
+//       width: 300px;
+//       max-width: 300px;
+//     }
+//   }
