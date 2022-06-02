@@ -199,29 +199,64 @@ li {
   top: -100px;
 }
 
- @media screen and (max-width: 550px) {
-    .card-trip-infos {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      align-content: stretch;
-      justify-content: space-between;
-      align-items: baseline;
-      column-gap: 5px;
-      font-size: small;
-   }
-  }
+//  @media screen and (max-width: 550px) {
+//     .card-trip-infos {
+//       display: flex;
+//       flex-direction: row;
+//       flex-wrap: nowrap;
+//       align-content: stretch;
+//       justify-content: space-between;
+//       align-items: baseline;
+//       column-gap: 5px;
+//       font-size: small;
+//    }
+//   }
 
-  @media screen and (max-width: 550px) {
-    .journey-show {
-      display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        align-content:center;
-        justify-content:baseline;
-        align-items: baseline;
-        column-gap: 5px;
-        font-size: small;
-    }
-  }
+//   @media screen and (max-width: 550px) {
+//     .journey-show {
+//       display: flex;
+//         flex-direction: column;
+//         flex-wrap: nowrap;
+//         align-content:center;
+//         justify-content:baseline;
+//         align-items: baseline;
+//         column-gap: 5px;
+//         font-size: small;
+//     }
+//   }
+.card-2 {
+  background-color: $rosy-brown-light;
+  text-align: center;
+  width: 300px;
+  max-width: 300px;
+  max-height: 80px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0px 0.3rem 0.3rem rgba(rgba(103, 98, 98, 0.575), 0.5);
+  margin-left: 30px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
 
+.profile-symbols {
+  margin-bottom: 10px;
+}
+
+// .card-3 {
+//   width: 300px;
+//   max-width: 300px;
+//   display: flex;
+//   flex-direction: column;
+//   overflow: hidden;
+//   position: relative;
+//   margin-left: 40px;
+//   margin-bottom: 50px;
+//   margin-right: 50%;
+// }
+
+// .profile-margin {
+//   margin-top: 10px;
+// }
