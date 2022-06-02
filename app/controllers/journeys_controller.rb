@@ -23,11 +23,11 @@ class JourneysController < ApplicationController
   end
 
   def new
-    if Journey.exists?(journey_status: "started")
+    @user = current_user
+    if Journey.exists?(user_id: @user.id, journey_status: "started")
       redirect_to journey_path(Journey.find_or_create_by(journey_status: "started")), alert: "You have an active Journey please end the current journey before starting a new one"
     else
       @user_safe_places = []
-      @user = current_user
       @buddies = current_user.buddies
       @journey = Journey.new
       @user.safe_places.each do |s|
