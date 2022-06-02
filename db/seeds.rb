@@ -54,9 +54,9 @@ new_journey5 = Journey.create!(starting_point_id: new_address1.id, destination_i
 new_journey6 = Journey.create!(starting_point_id: new_address3.id, destination_id: 1,
   mode_of_transportation: "Train", time_estimate: "60", user_id: 1, buddy_id: 2, journey_status: :completed)
 new_journey7 = Journey.create!(starting_point_id: new_address2.id, destination_id: 1,
-  mode_of_transportation: "Train", time_estimate: "30", user_id: 2, buddy_id: 2, journey_status: :started)
+  mode_of_transportation: "Train", time_estimate: "30", user_id: 2, buddy_id: 2, journey_status: :completed)
 new_journey8 = Journey.create!(starting_point_id: new_address1.id, destination_id: 4,
-  mode_of_transportation: "Train", time_estimate: "20", user_id: 1, buddy_id: 2, journey_status: :started)
+  mode_of_transportation: "Train", time_estimate: "20", user_id: 1, buddy_id: 2, journey_status: :completed)
 
 puts "Journeys created sucessfully"
 
