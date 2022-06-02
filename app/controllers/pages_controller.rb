@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: %i[home welcome safe_places_intro buddy_intro]
 
   def home
     if signed_in?
@@ -16,4 +16,5 @@ class PagesController < ApplicationController
   def landing
     @buddies = current_user.buddies.last(4)
   end
+
 end
