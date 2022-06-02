@@ -34,7 +34,7 @@ class JourneysController < ApplicationController
   end
 
   def create
-		if Journey.count <= 1
+		if Journey.where(journey_status: :started).count < 1
 			@journey = Journey.new(journey_params)
 			@journey.user = current_user
 			if params[:journey][:starting_point_id].instance_of?(ActionController::Parameters)
@@ -52,7 +52,7 @@ class JourneysController < ApplicationController
 
 			if @journey.save!
 				@journey.update(journey_status: :started)
-				TwilioClient.new.send_text('+4915784477390', twilio_message)
+				# TwilioClient.new.send_text('+4915784477390', twilio_message)
 				redirect_to journey_path(@journey)
 			else
 				render :new, notice: "Your journey could not be started."
