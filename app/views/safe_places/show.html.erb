@@ -6,15 +6,18 @@
 				data-mapbox-markers-value="<%= @markers.to_json %>"
 				data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 			</div>
-			
+
 			<div class="card-trip-infos">
 				<div>
-				<ul class="list-inline">
-					<h2 class="dark-gray"><%= @safe_place.name %></h2>
-					<li class="dark-gray"><%= @safe_place.address.address_line1 %> </li>
-				</ul>
+          <ul class="list-inline">
+            <h2 class="dark-gray"><%= @safe_place.name %></h2>
+            <li class="dark-gray"><%= @safe_place.address.address_line1 %> </li>
+          </ul>
 				</div>
-					<div class="btn button-oval ml-1 mt-1 card-trip-pricing"> <%= link_to 'Update', edit_address_path, :class => "btn" %></div>
+        <ul class ="d-flex">
+          <li class="btn button-oval ml-1 mt-1 card-trip-pricing"><%= link_to :Edit, edit_address_path, :class => "btn" %></li>
+          <li class="btn button-oval ml-1 mt-1 card-trip-pricing"><%= link_to :Remove, safe_place_path(@safe_place), method: :delete, data: {:confirm => "You sure?" }, class: "btn"  %></li>
+        </ul>
 			</div>
 		</div>
 </div>
