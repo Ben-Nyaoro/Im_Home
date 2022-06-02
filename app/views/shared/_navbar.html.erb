@@ -15,12 +15,8 @@
             <% end %>
           </div>
           <div class="col-4">
-            <%= link_to profile_path do %>
-              <% if current_user.profile_picture.attached? %>
-                <%= cl_image_tag(current_user.profile_picture.key, class: "rounded-circle avatar") %>
-              <% else %>
-                <%= image_tag "profile-img.png", height: 40 %>
-              <% end %>
+            <%= link_to buddies_path do %>
+                <%= image_tag "buddies-icon.png", height: 40 %>
             <% end %>
           </div>
         </div>

@@ -1,31 +1,18 @@
 <div class="container-flex mt-3 justify-content-around">
-	<div class="row mx-3">
-		<div class="col-6">
-			<div class="row">
-				<%= link_to root_path do %>
-					<%= image_tag "Header-logo.png", height: 50 %>
-				<% end %>
-			</div>
+	<div class="row mx-3 header-spread">
+		<div class="col-10">
+			<%= link_to root_path do %>
+				<%= image_tag "Header-logo.png", height: 50 %>
+			<% end %>
 		</div>
-		<div class="col-1 header">
-			<% unless user_signed_in? %>
-				<div class="col-1 d-flex">
-					<div class="login">
-						<%= link_to new_user_session_path do %>
-							<p class="dark-gray">Login&nbsp;</p>
-						<% end %>
-					</div>
-					<div>
-						<p> |&nbsp;</p>
-					</div>
-
-					<div class="signup">
-						<%= link_to new_user_registration_path do %>
-							<p class="dark-gray">Sign Up</p>
-						<% end %>
-					</div>
-				</div>
-			</div>
-		<% end %>
+		<div class="col-2 align-items-end">
+ 			<%= link_to profile_path do %>
+      			<% if current_user.profile_picture.attached? %>
+            		<%= cl_image_tag(current_user.profile_picture.key, class: "rounded-circle avatar") %>
+        		<% else %>
+            		<%= image_tag "profile-img.png", height: 40 %>
+        		<% end %>
+    		<% end %>
+		</div>
 	</div>
 </div>
