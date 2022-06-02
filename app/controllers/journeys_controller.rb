@@ -34,34 +34,31 @@ class JourneysController < ApplicationController
   end
 
   def create
-		if Journey.count <= 1
-			@journey = Journey.new(journey_params)
-			@journey.user = current_user
-			if params[:journey][:starting_point_id].instance_of?(ActionController::Parameters)
-				@journey.starting_point = Address.find_or_create_by(address_line1: params[:journey][:starting_point_id][:address_line1],address_line2: params[:journey][:starting_point_id][:address_line2], postcode: params[:journey][:starting_point_id][:postcode], city: params[:journey][:starting_point_id][:city])
-			else
-				@journey.starting_point = Address.find_or_create_by(id: params[:journey][:starting_point_id].to_i)
-			end
-			if params[:journey][:destination_id].instance_of?(ActionController::Parameters)
-				@journey.destination = Address.find_or_create_by(address_line1: params[:journey][:destination_id][:address_line1], address_line2: params[:journey][:destination_id][:address_line2], postcode: params[:journey][:destination_id][:postcode], city: params[:journey][:destination_id][:city])
-			else
-				@journey.destination = Address.find_or_create_by(id: params[:journey][:destination_id].to_i)
-			end
-
-			@journey.save!
-
-			if @journey.save!
-				@journey.update(journey_status: :started)
-				TwilioClient.new.send_text('+4915784477390', twilio_message)
-				redirect_to journey_path(@journey)
-			else
-				render :new, notice: "Your journey could not be started."
-			end
-
-		else
-			redirect_to journey_path(Journey.last), alert: "You have an active Journey please end the current journey before starting a new one"
-	end
-end
+    # if Journey.count <= 1
+      @journey = Journey.new(journey_params)
+      @journey.user = current_user
+      if params[:journey][:starting_point_id].instance_of?(ActionController::Parameters)
+        @journey.starting_point = Address.find_or_create_by(address_line1: params[:journey][:starting_point_id][:address_line1],address_line2: params[:journey][:starting_point_id][:address_line2], postcode: params[:journey][:starting_point_id][:postcode], city: params[:journey][:starting_point_id][:city])
+      else
+        @journey.starting_point = Address.find_or_create_by(id: params[:journey][:starting_point_id].to_i)
+      end
+      if params[:journey][:destination_id].instance_of?(ActionController::Parameters)
+        @journey.destination = Address.find_or_create_by(address_line1: params[:journey][:destination_id][:address_line1], address_line2: params[:journey][:destination_id][:address_line2], postcode: params[:journey][:destination_id][:postcode], city: params[:journey][:destination_id][:city])
+      else
+        @journey.destination = Address.find_or_create_by(id: params[:journey][:destination_id].to_i)
+      end
+      @journey.save!
+      if @journey.save!
+        @journey.update(journey_status: :started)
+        TwilioClient.new.send_text('+4915784477390', twilio_message)
+        redirect_to journey_path(@journey)
+      else
+        render :new, notice: "Your journey could not be started."
+      end
+    # else
+    #   redirect_to journey_path(Journey.last), alert: "You have an active Journey please end the current journey before starting a new one"
+    # end
+  end
 
 
   def edit
