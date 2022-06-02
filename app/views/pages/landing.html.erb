@@ -37,10 +37,10 @@
 			data-mapbox-markers1-value="<%= @markers1.to_json %>"
 			data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 		</div>
-		<div class="text-center">
+    <div class="text-center button-placement">
 			<%= link_to new_journey_path do %>
-				<div class="btn journey btn-primary ml-1 mt-1 fs-5"> Start Journey </div>
+				<div class="btn journey btn-primary ml-1 mt-1 fs-5 text-center"> Start Journey </div>
 			<% end %>
-		</div>
+    </div>
 	</div>
 </div>
