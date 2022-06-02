@@ -43,7 +43,9 @@ class SafePlacesController < ApplicationController
   end
 
   def destroy
+    @address = @safe_place.address
     @safe_place.destroy
+    @address.destroy
     redirect_to safe_places_path
   end
 
