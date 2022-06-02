@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row justify-content-center">
-  <h3>Update your safe place's address:</h3>
+  <h3>Update your safe place:</h3>
 			<%= simple_form_for [@address] do |f| %>
 				<%= f.input :address_line1, label: "Address",
               input_html: { data: { geocoder_target: "address_line1" }, class: "d-none"},
