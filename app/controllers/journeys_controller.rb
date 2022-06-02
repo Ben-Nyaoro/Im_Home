@@ -60,7 +60,6 @@ class JourneysController < ApplicationController
     end
   end
 
-
   def edit
     @user_safe_places = []
     @user = current_user

@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     if signed_in?
-			@buddies = current_user.buddies.last(4)
+      redirect_to landing_path
     end
   end
 
@@ -11,5 +11,9 @@ class PagesController < ApplicationController
     if signed_in?
       @user = current_user
     end
+  end
+
+  def landing
+    @buddies = current_user.buddies.last(4)
   end
 end
