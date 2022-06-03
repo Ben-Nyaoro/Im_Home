@@ -11,9 +11,16 @@
 				<ul class="list-inline">
 					<li class="dark-gray"><b>From:</b> <%= @journey.starting_point.address_line1 %></li>
 					<li class="dark-gray"><b>To:</b> <%= @journey.destination.address_line1 %> </li>
-					<li class="dark-gray"><b>Started at:</b> <%= @journey.created_at.strftime('%d-%b-%Y %H:%M:%S') %> </li>
-					<li class="dark-gray"><b>Estimated:</b> <span class="counter"><%= @journey.time_estimate %> </span>Mins </li>
-					<li class="dark-gray"><b>Remaining:</b> <span class="counter"><%= Time.now - (@journey.created_at) %> </span> </li>
+					<li class="dark-gray"><b>Started at:</b> <%= startTime = @journey.created_at.strftime('%d-%b-%Y %H:%M:%S') %> </li>
+					<li class="dark-gray"><b>Estimated:</b> <%= timeestimate = @journey.time_estimate %> Mins </li>
+					<li> <% endtime = @journey.created_at + (@journey.time_estimate * 60) %></h6>
+					<li class="text-white fs-6"><span class="counter">
+						<% if endtime >= Time.now %>
+							<%= remainingtime = endtime - Time.now %>
+						<% else %>
+							<%= 1 %>
+						<% end %></span>
+					</li>
 				</ul>
 			</div>
 
