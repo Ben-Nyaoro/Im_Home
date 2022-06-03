@@ -13,11 +13,16 @@ class BuddiesController < ApplicationController
   end
 
   def create
+    @safe_places = current_user.safe_places
     @buddy = Buddy.create(buddy_params)
     @buddy.user = current_user
     if @buddy.save
-      flash[:success] = "Buddy successfully created"
-      redirect_to @buddy
+      if @safe_places.count.zero?
+        redirect_to add_safe_place_intro_path
+      else
+        flash[:success] = "Buddy successfully created"
+        redirect_to @buddy
+      end
     else
       flash[:error] = "Something went wrong"
       render 'new'

@@ -17,4 +17,12 @@ class PagesController < ApplicationController
     @buddies = current_user.buddies.last(4)
   end
 
+  def add_buddy_intro
+    @user = current_user
+  end
+
+  def add_safe_place_intro
+    @user = current_user
+  end
+
 end
