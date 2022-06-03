@@ -25,7 +25,11 @@ class SafePlacesController < ApplicationController
     @safe_place.address = Address.last
     @safe_place.save!
     if @safe_place.save!
-      redirect_to safe_places_path
+      if current_user.safe_places.count == 1
+        redirect_to landing_path
+      else
+        redirect_to safe_places_path
+      end
     else
       render :new, notice: "Please check your safe place's details."
     end
