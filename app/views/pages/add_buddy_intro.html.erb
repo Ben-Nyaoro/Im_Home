@@ -1,9 +1,17 @@
-<div class="d-flex flex-column align-items-center">
-<%= image_tag "Intro_buddies.png", height: 250 %>
-<div class="container text-center">
-<h6>Hi <%= @user.name %>, welcome again!</h6>
-<h6>Now let's add your first buddy to notify them each time we are on the move.</h6>
-</div>
 
+<div class="text-end m-3">
+		<p>
+        
+        </p>
+</div>
+<div class="d-flex justify-content-around align-items-center m-2x">
+<%= image_tag "Intro_buddies.png", height: 250 %>
+</div>
+<div class="container text-center m-3">
+    <h6>Hi <%= @user.name %>, welcome again!</h6>
+    <h6>Now let's add your first buddy to notify them each time we are on the move.</h6>
+</div>
+	<div class="d-flex flex-row-reverse m-3">
 <div class="btn button-oval ml-1 mt-1 card-trip-pricing"><%= link_to "Add Buddy", new_buddy_path, :class => "btn" %></div>
+	</div>
 </div>

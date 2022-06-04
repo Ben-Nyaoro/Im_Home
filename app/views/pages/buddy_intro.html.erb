@@ -1,8 +1,17 @@
-<div class="d-flex flex-column align-items-center">
-  <%= image_tag "Intro_buddies.png", height: 250 %>
-  <div class="container text-center">
+<div class="text-end m-3">
+		<%= link_to new_user_registration_path do %>
+			<p class="dark-gray">Skip</p>
+		<% end %>
+</div>
+<div class="d-flex justify-content-around align-items-center m-2x">
+<%= image_tag "Intro_buddies.png", height: 250 %>
+</div>
+<div class="container text-center m-3">
   <h5>Create a list of buddies who can accompany you on your journey.</h5>
-  </div>
-  <div class="btn button-oval ml-1 mt-1 card-trip-pricing"><%= link_to "->", new_user_registration_path, :class => "btn" %></div>
-  </div>
+	</div>
+	<div class="d-flex flex-row-reverse m-3">
+		<%= link_to new_user_registration_path do %>
+			<%= image_tag "next.png", height: 40 %>
+		<% end%>
+	</div>
 </div>

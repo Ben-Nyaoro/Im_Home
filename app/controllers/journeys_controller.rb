@@ -7,6 +7,18 @@ class JourneysController < ApplicationController
   end
 
   def show
+	@user = current_user
+	@timeestimate = @journey.time_estimate
+	@endtime = @journey.created_at + (@journey.time_estimate * 60)
+		if @endtime >= Time.now
+			@remainingtime = @endtime - Time.now
+			if @remainingtime == 2
+				TwilioClient.new.send_text('+4915784477390', "#{@user.name} has not ended their journey. Please get in touch with them.")
+			end
+		else
+			@remainingtime = 1
+		end
+
   # the `geocoded` scope filters only journey starting and destination with coordinates (latitude & longitude)
     @markers = [{
       lat: @journey.starting_point.latitude,
