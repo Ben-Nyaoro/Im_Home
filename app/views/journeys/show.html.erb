@@ -24,7 +24,7 @@
 				</ul>
 			</div>
 
-		<div id="app" data-controller="timer">			
+		<div id="app" data-controller="timer">
 		</div>
 		<div>
 			<%= javascript_pack_tag 'timer'%>
@@ -37,8 +37,8 @@
 			<p class="card-trip-pricing relative"><%= buddy.name %></p>
 		</div>
 		</div><hr>
-		<div class= "d-flex justify-content-around">
-			<div class="btn button-oval ml-1 mt-1"> <%= link_to "End Journey", journey_path(@journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
-			<div class="btn button-oval ml-1 mt-1"> <%= link_to 'Update', edit_journey_path(@journey), :class => "btn" %></div>
+		<div class= "d-flex justify-content-around align-items-center m-2">
+			<div class="btn button-oval button-journey-show"> <%= link_to "End Journey", journey_path(@journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
+			<div class="btn button-oval ml-1"> <%= link_to 'Update', edit_journey_path(@journey), :class => "btn" %></div>
 		</div>
 </div>
