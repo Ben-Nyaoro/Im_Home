@@ -1,6 +1,29 @@
-<div class="d-flex flex-column align-items-center">
- <%= link_to landing_path do %>
-                <p class="dark-gray">Log in</p>
-            <% end %>
-<div class="btn button-oval ml-1 mt-1 card-trip-pricing"><%= link_to "Let's go", welcome_path, :class => "btn" %></div>
+<div class="d-flex flex-column justify-content-around align-items-center">
+  <div class="large-logo">
+    <%= image_tag "logo-large.png", height: 150 %>
+  </div>
+  <div class="log-in-details">
+  <% unless user_signed_in? %>
+				<div class="col-1 d-flex">
+					<div class="login">
+						<%= link_to new_user_session_path do %>
+							<p class="log-in-details">Login&nbsp;</p>
+						<% end %>
+					</div>
+					<div>
+						<p> |&nbsp;</p>
+					</div>
+
+					<div class="signup">
+						<%= link_to new_user_registration_path do %>
+							<p class="log-in-details">Sign Up</p>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
+<div class="d-flex flex-column justify-content-around align-items-center large-logo-2">
+<div class="btn button-oval ml-1 mt-1 card-trip-pricing"><%= link_to "Get Started", welcome_path, :class => "btn" %></div>
 </div>
