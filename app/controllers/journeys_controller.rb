@@ -18,7 +18,6 @@ class JourneysController < ApplicationController
 		else
 			@remainingtime = 1
 		end
-
   # the `geocoded` scope filters only journey starting and destination with coordinates (latitude & longitude)
     @markers = [{
       lat: @journey.starting_point.latitude,
