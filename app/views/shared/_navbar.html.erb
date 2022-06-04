@@ -1,22 +1,22 @@
 <% if user_signed_in? %>
 <section class="rosy-background">
 <div class="navbar navbar-expand-sm fixed-bottom mt-2">
-  <div class="container-fluid fixed-bottom mb-1 align-bottom bg-light">
+  <div class="container-fluid fixed-bottom align-bottom bg-light">
       <div class="col-12 text-center">
-        <div class="row mt-1">
+        <div class="row mb-4">
           <div class="col-4">
             <%= link_to safe_places_path do %>
-		    	    <%= image_tag "safe-img.png", height: 40 %>
+							<%= image_tag "safe-img.png", height: 40 %>
             <% end %>
           </div>
           <div class="col-4 logo-navbar">
             <%= link_to root_path do %>
-		    	    <%= image_tag "im-home-img.png" %>
+							<%= image_tag "im-home-img.png" %>
             <% end %>
           </div>
           <div class="col-4">
             <%= link_to buddies_path do %>
-                <%= image_tag "buddies-icon.png", height: 40 %>
+              <%= image_tag "buddies-icon.png", height: 40 %>
             <% end %>
           </div>
         </div>
