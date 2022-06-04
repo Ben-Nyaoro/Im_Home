@@ -201,6 +201,20 @@ li {
   top: -100px;
 }
 
+.large-logo {
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+
+.large-logo-2 {
+  margin-top: 30px;
+}
+
+.log-in-details {
+  color: $pink;
+}
+
+
 //  @media screen and (max-width: 550px) {
 //     .card-trip-infos {
 //       display: flex;
@@ -269,4 +283,9 @@ li {
 
 .buddies-index {
   margin-top: 50px;
+}
+
+.user-sign-up {
+  color: #15616d;
+  font-weight: bolder;
 }
