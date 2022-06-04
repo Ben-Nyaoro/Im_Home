@@ -6,13 +6,15 @@
 			<% end %>
 		</div>
 		<div class="col-2 align-items-end">
- 			<%= link_to profile_path do %>
-      			<% if current_user.profile_picture.attached? %>
-            		<%= cl_image_tag(current_user.profile_picture.key, class: "rounded-circle avatar") %>
-        		<% else %>
-            		<%= image_tag "profile-img.png", height: 40 %>
-        		<% end %>
-    		<% end %>
+		<% if user_signed_in? %>
+				<%= link_to profile_path do %>
+					<% if current_user.profile_picture.attached? %>
+						<%= cl_image_tag(current_user.profile_picture.key, class: "rounded-circle avatar") %>
+						<% else %>
+							<%= image_tag "profile-img.png", height: 40 %>
+					<% end %>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </div>
