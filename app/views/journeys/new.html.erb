@@ -40,7 +40,7 @@
         <br>
         <div id="modeandtime">
           <%= f.input :mode_of_transportation, collection: ["Bus", "Train", "Taxi/Uber", "Car", "Foot"] %>
-          <%= f.input :time_estimate, collection: [10, 20, 30, 40, 50, 60] %>
+          <%= f.input :time_estimate, collection: [1, 10, 20, 30, 40, 50, 60] %>
         </div>
         <%= f.submit class: 'btn button-oval' %>
 			<% end %>
