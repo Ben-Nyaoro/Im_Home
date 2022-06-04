@@ -19,7 +19,11 @@
 							<%= remainingtime = endtime - Time.now %>
 						<% else %>
 							<%= 1 %>
-						<% end %></span>
+						<% end %>
+            <% if remainingtime == 2 %>
+            <% TwilioClient.new.send_text('+4915784477390', "#{@user.name} has not ended their journey. Please get in touch with them.") %>
+            <% end %>
+            </span>
 					</li>
 				</ul>
 			</div>

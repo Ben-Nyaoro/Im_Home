@@ -7,6 +7,7 @@ class JourneysController < ApplicationController
   end
 
   def show
+    @user = current_user
   # the `geocoded` scope filters only journey starting and destination with coordinates (latitude & longitude)
     @markers = [{
       lat: @journey.starting_point.latitude,
