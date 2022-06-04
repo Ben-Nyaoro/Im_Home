@@ -9,22 +9,16 @@
 		<div class="card-trip-infos">
 			<div d-flex>
 				<ul class="list-inline">
-					<li class="dark-gray"><b>From:</b> <%= @journey.starting_point.address_line1 %></li>
-					<li class="dark-gray"><b>To:</b> <%= @journey.destination.address_line1 %> </li>
-					<li class="dark-gray"><b>Started at:</b> <%= startTime = @journey.created_at.strftime('%d-%b-%Y %H:%M:%S') %> </li>
-					<li class="dark-gray"><b>Estimated:</b> <%= timeestimate = @journey.time_estimate %> Mins </li>
-					<li> <% endtime = @journey.created_at + (@journey.time_estimate * 60) %></h6>
-					<li class="text-white fs-6"><span class="counter">
-						<% if endtime >= Time.now %>
-							<%= remainingtime = endtime - Time.now %>
-						<% else %>
-							<%= 1 %>
-						<% end %></span>
+					<li class="dark-gray fs-6"><b>From:</b> <%= @journey.starting_point.address_line1 %></li>
+					<li class="dark-gray fs-6"><b>To:</b> <%= @journey.destination.address_line1 %> </li>
+					<li class="dark-gray fs-6"><b>Started at:</b> <%= @journey.created_at.strftime('%d-%b-%Y %H:%M:%S') %> </li>
+					<li class="dark-gray fs-6"><b>Estimated:</b> <%= @journey.time_estimate %> Mins </li>
+					<li class="text-white fs-6"><span class="counter"><%= @remainingtime %></span>
 					</li>
 				</ul>
 			</div>
 
-		<div id="app" data-controller="timer">
+		<div id="app" data-controller="timer">			
 		</div>
 		<div>
 			<%= javascript_pack_tag 'timer'%>
@@ -37,8 +31,8 @@
 			<p class="card-trip-pricing relative"><%= buddy.name %></p>
 		</div>
 		</div><hr>
-		<div class= "d-flex justify-content-around align-items-center m-2">
-			<div class="btn button-oval button-journey-show"> <%= link_to "End Journey", journey_path(@journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
-			<div class="btn button-oval ml-1"> <%= link_to 'Update', edit_journey_path(@journey), :class => "btn" %></div>
+		<div class= "d-flex justify-content-around">
+			<div class="btn button-oval ml-1 mt-1"> <%= link_to "End Journey", journey_path(@journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
+			<div class="btn button-oval ml-1 mt-1"> <%= link_to 'Update', edit_journey_path(@journey), :class => "btn" %></div>
 		</div>
 </div>
