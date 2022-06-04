@@ -11,10 +11,10 @@
 				<ul class="list-inline">
 					<li class="dark-gray fs-6"><b>From:</b> <%= @journey.starting_point.address_line1 %></li>
 					<li class="dark-gray fs-6"><b>To:</b> <%= @journey.destination.address_line1 %> </li>
-					<li class="dark-gray fs-6"><b>Started at:</b> <%= @journey.created_at.strftime('%d-%b-%Y %H:%M:%S') %> </li>
+					<li class="dark-gray fs-6"><b>Started at:</b> <%= @journey.created_at.strftime('%d-%b-%Y %H:%M') %> </li>
 					<li class="dark-gray fs-6"><b>Estimated:</b> <%= @journey.time_estimate %> Mins </li>
-					<li class="text-white fs-6"><span class="counter"><%= @remainingtime %></span>
-					</li>
+					<p class="text-white fs-6"><span class="counter"><%= @remainingtime %></span>
+					</p>
 				</ul>
 			</div>
 

@@ -8,7 +8,6 @@ class JourneysController < ApplicationController
 
   def show
 	@user = current_user
-	@startTime = @journey.created_at
 	@timeestimate = @journey.time_estimate
 	@endtime = @journey.created_at + (@journey.time_estimate * 60)
 		if @endtime >= Time.now
