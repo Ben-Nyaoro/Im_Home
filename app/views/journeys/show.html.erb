@@ -30,7 +30,7 @@
 			<% end %></li>
 			<li class="card-trip-pricing relative dark-gray"><%= buddy.name %></li>
 		</div>
-		</div><hr>
+		</div><hr style="margin: 1px 0;">
 		<div class= "d-flex justify-content-around">
 			<div class="btn button-oval ml-1 mt-1"> <%= link_to "End Journey", journey_path(@journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
 			<div class="btn button-oval ml-1 mt-1"> <%= link_to 'Update', edit_journey_path(@journey), :class => "btn" %></div>
