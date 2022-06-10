@@ -21,16 +21,16 @@
 		<div id="app" data-controller="timer">
 		</div>
 		<div>
-			<%= javascript_pack_tag 'timer'%>
+			<li class="p-0 m-0"><%= javascript_pack_tag 'timer'%>
 			<% buddy = Buddy.find_or_create_by(id: @journey.buddy_id)%>
 			<% if buddy.profile_picture.attached? %>
 				<%= cl_image_tag(buddy.profile_picture.key, class: "rounded-circle card-trip-user avatar-bordered") %>
 			<% else %>
 				<%= cl_image_tag("cld-sample", class: "rounded-circle card-trip-user avatar-bordered" ) %>
-			<% end %>
-			<p class="card-trip-pricing relative"><%= buddy.name %></p>
+			<% end %></li>
+			<li class="card-trip-pricing relative dark-gray"><%= buddy.name %></li>
 		</div>
-		</div><hr>
+		</div><hr style="margin: 1px 0;">
 		<div class= "d-flex justify-content-around">
 			<div class="btn button-oval ml-1 mt-1"> <%= link_to "End Journey", journey_path(@journey), :class => "btn", method: :delete, data: { message: "Your buddy will be informed" } %></div>
 			<div class="btn button-oval ml-1 mt-1"> <%= link_to 'Update', edit_journey_path(@journey), :class => "btn" %></div>
