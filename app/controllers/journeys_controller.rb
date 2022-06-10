@@ -7,30 +7,27 @@ class JourneysController < ApplicationController
   end
 
   def show
-	@user = current_user
-	@timeestimate = @journey.time_estimate
-	@endtime = @journey.created_at + (@journey.time_estimate * 60)
-		if @endtime >= Time.now
-			@remainingtime = @endtime - Time.now
-			if @remainingtime == 2
-				TwilioClient.new.send_text('+4915784477390', "#{@user.name} has not ended their journey. Please get in touch with them.")
-			end
-		else
-			@remainingtime = 1
-		end
-  # the `geocoded` scope filters only journey starting and destination with coordinates (latitude & longitude)
+    @user = current_user
+    @timeestimate = @journey.time_estimate
+    @endtime = @journey.created_at + (@journey.time_estimate * 60)
+    if @endtime >= Time.now
+      @remainingtime = @endtime - Time.now
+    else
+      @remainingtime = 1
+    end
+    # the `geocoded` scope filters only journey starting and destination with coordinates (latitude & longitude)
     @markers = [{
       lat: @journey.starting_point.latitude,
       lng: @journey.starting_point.longitude,
       image_url: helpers.asset_url("starting_point.png"),
       info_window: render_to_string(partial: "info_start_window", locals: { journey: @journey.starting_point })
-  }]
-  @markers << {
-    lat: @journey.destination.latitude,
-    lng: @journey.destination.longitude,
-    image_url: helpers.asset_url("destination.png"),
-    info_window: render_to_string(partial: "info_end_window", locals: { journey: @journey.destination })
-  }
+    }]
+    @markers << {
+      lat: @journey.destination.latitude,
+      lng: @journey.destination.longitude,
+      image_url: helpers.asset_url("destination.png"),
+      info_window: render_to_string(partial: "info_end_window", locals: { journey: @journey.destination })
+    }
   end
 
   def new
@@ -64,7 +61,7 @@ class JourneysController < ApplicationController
     @journey.save!
     if @journey.save!
       @journey.update(journey_status: :started)
-      # TwilioClient.new.send_text('+4915784477390', start_message)
+      TwilioClient.new.send_text('+4915784477390', start_message)
       redirect_to journey_path(@journey)
     else
       render :new, notice: "Your journey could not be started."
@@ -88,7 +85,7 @@ class JourneysController < ApplicationController
 
   def destroy
     @journey.update(journey_status: :completed)
-    # TwilioClient.new.send_text('+4915784477390', finish_message)
+    TwilioClient.new.send_text('+4915784477390', finish_message)
     redirect_to root_path
   end
 
@@ -109,6 +106,6 @@ class JourneysController < ApplicationController
 
   def finish_message
     @user = current_user
-    "#{@user.name} is safe."
+    "#{@user.name} has reached her destination."
   end
 end
