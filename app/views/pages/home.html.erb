@@ -4,7 +4,7 @@
   </div>
   <div class="log-in-details">
   <% unless user_signed_in? %>
-				<div class="col-1 d-flex">
+				<div class="col-3 d-flex">
 					<div class="login">
 						<%= link_to new_user_session_path do %>
 							<p class="log-in-details">Login&nbsp;</p>
@@ -16,7 +16,7 @@
 
 					<div class="signup">
 						<%= link_to new_user_registration_path do %>
-							<p class="log-in-details">Sign Up</p>
+							<p class="log-in-details">Sign-Up</p>
 						<% end %>
 					</div>
 				</div>
