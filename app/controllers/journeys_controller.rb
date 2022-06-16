@@ -61,7 +61,7 @@ class JourneysController < ApplicationController
     @journey.save!
     if @journey.save!
       @journey.update(journey_status: :started)
-      TwilioClient.new.send_text('+4915784477390', start_message)
+      # TwilioClient.new.send_text('phone', start_message)
       redirect_to journey_path(@journey)
     else
       render :new, notice: "Your journey could not be started."
@@ -85,7 +85,7 @@ class JourneysController < ApplicationController
 
   def destroy
     @journey.update(journey_status: :completed)
-    TwilioClient.new.send_text('+4915784477390', finish_message)
+    # TwilioClient.new.send_text('phone', finish_message)
     redirect_to root_path
   end
 
